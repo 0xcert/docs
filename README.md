@@ -1,5 +1,5 @@
-# 0xcert Framework documentation website
+# 0xcert Framework documentation
 
-This is compiled documentation website from [https://github.com/0xcert/framework/tree/master/docs/](https://github.com/0xcert/framework/tree/master/docs/)
+Welcome to 0xcert documentation repository.
 
-See live documentation at: [https://docs.0xcert.org](https://docs.0xcert.org)
+Please, see live documentation at: [https://docs.0xcert.org](https://docs.0xcert.org)
