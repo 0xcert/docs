@@ -1,8 +1,8 @@
-# Overview
+# Welcome to 0xcert Framework v2
 
 The 0xcert (pronounced [zeer-oh-eks-surt]) Framework provides tools for building powerful decentralized applications (dapps) and consists of open-source JavaScript libraries and closed-source APIs.
 
-![0xcert framework](../assets/scheme_1.svg)
+![0xcert framework](./assets/scheme_1.svg)
 
 ## What is the 0xcert Framework?
 
@@ -14,7 +14,7 @@ Management of **values**, on the other hand, deals with cryptocurrency tokens th
 
 The 0xcert Framework uses decentralized and distributed systems as a permanent storage. Assets and values are safely stored as immutable data and thus represent the data layer of trust. The 0xcert Framework represents an interoperable solution and thus supports multiple platforms.
 
-![0xcert framework](../assets/scheme_2.svg)
+![0xcert framework](./assets/scheme_2.svg)
 
 ## What does it solve?
 

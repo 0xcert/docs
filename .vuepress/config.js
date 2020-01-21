@@ -26,7 +26,7 @@ module.exports = {
     editLinks: true,
     editLinkText: 'Help us improve this page.',
     nav: [
-      { text: 'Framework', link: '/framework-v2/' },
+      { text: 'Framework', link: '/framework/v2/' },
       { text: '0xcertAPI', link: '/api/' },
       { text: 'Website', link: 'https://0xcert.org' },
     ],
@@ -36,7 +36,6 @@ module.exports = {
           title: 'Introduction API',
           collapsable: false,
           children: [
-            'introduction/overview',
             'introduction/getting-started',          
             'introduction/non-fungible-assets',
             'introduction/fungible-values',
@@ -73,12 +72,11 @@ module.exports = {
           ],
         },
       ],
-      '/framework-v2/': [
+      '/framework/v2/': [
         {
           title: 'Introduction',
           collapsable: false,
           children: [
-            'introduction/overview',
             'introduction/getting-started',          
             'introduction/non-fungible-assets',
             'introduction/fungible-values',
@@ -115,12 +113,11 @@ module.exports = {
           ],
         },
       ],
-      '/framework-v1/': [
+      '/framework/v1/': [
         {
           title: 'Guide',
           collapsable: false,
           children: [
-            'guide/introduction', 
             'guide/getting-started', 
             'guide/communication', 
             'guide/using-providers', 
