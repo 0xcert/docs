@@ -49,7 +49,8 @@ module.exports = {
             'guides/certification',
             'guides/providers',
             'guides/asset-ledger-deployment',
-            'guides/issue-asset'
+            'guides/issue-asset',
+            'guides/transfer-asset'
           ],
         },
         {
