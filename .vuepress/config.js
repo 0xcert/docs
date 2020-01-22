@@ -48,7 +48,8 @@ module.exports = {
           children: [
             'guides/certification',
             'guides/providers',
-            'guides/asset-ledger-deployment'
+            'guides/asset-ledger-deployment',
+            'guides/issue-asset'
           ],
         },
         {
