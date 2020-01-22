@@ -37,7 +37,7 @@ const actionCreateAsset: ActionCreateAsset = {
   imprint: 'd747e6ffd1aa3f83efef2931e3cc22c653ea97a32c1ee7289e4966b6964ecdfb',
 };
 ```
-To create a new asset we need to generate its imprint. You can learn more about generating imprints in the [Certification guide]() chapter. As `assetLedgerId` we must provide the ID of our newly deployed asset ledger from guide [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) or any other deployed ledger. As `senderId` we set `provider.accountId`, which means that we will be signing asset creation order. We set the asset's id to `100`, and for the `receiverId`, we set `provider.accountId`, which means we are creating asset for ourselves.
+To create a new asset we need to generate its imprint. You can learn more about generating imprints in the [Certification]() guide. As `assetLedgerId` we must provide the ID of our newly deployed asset ledger from guide [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) or any other deployed ledger. As `senderId` we set `provider.accountId`, which means that we will be signing asset creation order. We set the asset's id to `100`, and for the `receiverId`, we set `provider.accountId`, which means we are creating asset for ourselves.
 
 ::: tip
 The `provider.accountId` is your currently selected provider account. If you want someone else to be the receiver, enter their account address instead.
@@ -88,5 +88,5 @@ const status = await client.getOrder(actionsOrder.ref).then((data) => data.data.
 If the status of the action order equals to `7`, we know that our order was performed successfully and asset was issued. Now we can request our newly created asset.
 
 ```ts
-const asset = await client.getLedgerAsset(ledger.id, '100').then((data) => data.data);
+const asset = await client.getLedgerAsset(ledger.ref, '100').then((data) => data.data);
 ```

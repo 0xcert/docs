@@ -36,7 +36,7 @@ const actionTransferAsset: ActionTransferAsset = {
   id: asset.id,
 };
 ```
-As `assetLedgerId` we must provide the ID of our newly deployed asset ledger from guide [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) or any other deployed ledger. We specify which issued asset we want to transfer by setting asset's `id`. We can use asset we created in guide [Issue asset]() or any other created asset that we own.
+As `assetLedgerId` we must provide the ID of our newly deployed asset ledger from guide [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) or any other deployed ledger. We specify which issued asset we want to transfer by setting `id` to the ID of the asset. We can use asset we created in guide [Issue asset]() or any other created asset that we own.
 
 ::: warning
 Asset with the provided ID must exists on the provided asset ledger.
@@ -45,7 +45,7 @@ Asset with the provided ID must exists on the provided asset ledger.
 As `senderId` we set `provider.accountId`, which means that we will be sending the asset to the receiver. We must specify the receiver of the asset by setting `receiverId` to receiver's address.
 
 ::: tip
-Account address specified as `senderId` must be the owner of the asset we want to transform.
+Account address specified as `senderId` can only transfer asset if they are either the asset's owner or if they have been authorized by the asset's owner and have the ability to operate with it on their behalf.
 :::
 
 After we defined our transfer asset action, it's time to define our order which will perform the defined action.
