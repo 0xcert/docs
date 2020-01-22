@@ -1,14 +1,6 @@
-# Installation
+# Asset ledger deployment
 
-We recommend you employ the client module as an NPM package in your application.
-
-```shell
-$ npm i --save @0xcert/client
-```
-
-On our official [GitHub repository](https://github.com/0xcert/framework), we also host a compiled and minimized JavaScript file that you can directly include in your website. Please refer to the [API](/api/core.html) section to learn more about asset ledger.
-
-## Usage overview
+Asset ledger represents a non-fungible smart contract on the Ethereum blockchain. It represents a container holding assets of a specific type and format. In this guide we deploy a new asset ledger to the blockchain for our imaginary educational math course.
 
 We begin by importing the modules.
 
@@ -26,7 +18,7 @@ const client = new Client({
 await client.init();
 ```
 
-Once client is initialized, let's define our asset ledger that we want to deploy.
+Once client is initialized, we define our asset ledger that we want to deploy.
 
 ```ts
 const assetLedgerDeployment = {
@@ -40,7 +32,7 @@ const assetLedgerDeployment = {
 };
 ```
 
-We describe our asset ledger by naming it and by setting its symbol. We decide where the asset metadata will live by defining the `uriPrefix` and `uriPostfix`. Asset's metadata is off-chain descriptive data about each asset. Combining the `uriPrefix` with asset ID and `uriPostfix`, we get the URI of each asset's metadata location. Through the [Certification guide](), we define the schemaId, and through [capabilities](), we decide what additional functionalities the asset ledger will possess. We select the owner of the asset ledger by setting `ownerId` to owner's Ethereum account address. Owner will receive abilities of the deployed asset ledger. 
+We describe our asset ledger by setting a `name` and a `symbol`. We decide where the asset metadata will live by defining the `uriPrefix` and `uriPostfix`. Asset's metadata is off-chain descriptive data about each asset. Combining the `uriPrefix` with asset ID and `uriPostfix`, we get the URI of each asset's metadata location. Through the [Certification guide](), we define the schemaId, and through [capabilities](), we decide what additional functionalities the asset ledger will possess. We select the owner of the asset ledger by setting `ownerId` to owner's Ethereum account address. Owner will receive abilities of the deployed asset ledger. 
 
 ::: warning
 Asset ledger's capabilities cannot be changed once a ledger is deployed.
