@@ -2,6 +2,20 @@
 
 Asset ledger represents a non-fungible smart contract on the Ethereum blockchain. It represents a container holding assets of a specific type and format. In this guide we deploy a new asset ledger to the blockchain for our imaginary educational math course.
 
+## Prerequisites
+
+In this guide, we will assume you have gone through the [Certification]() guide and have a basic understandoing on how assets and schemas work. You will also need a MetaMask account with some credits.
+
+## Installation
+
+We recommend you employ the client module as an NPM package in your application.
+
+```shell
+$ npm i --save @0xcert/client
+```
+
+## Usage
+
 We begin by importing the client modules.
 
 ```ts
