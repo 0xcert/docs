@@ -2,6 +2,12 @@
 
 Asset ledger represents a non-fungible smart contract on the Ethereum blockchain. It represents a container holding assets of a specific type and format. In this guide we deploy a new asset ledger to the blockchain for our imaginary educational math course.
 
+## Prerequisites
+
+In this guide, we will assume you have gone through the [Installation](asset-ledger-deployment.html#asset-ledger-deployment) guide and have installed the client npm package.
+
+## Usage overview
+
 We begin by importing the client modules.
 
 ```ts
@@ -18,7 +24,7 @@ const client = new Client({
 await client.init();
 ```
 ::: warning
-For successful client initialization you need connected 0xcert framework provider instance. See [Using providers]() chapter for detailed instructions. Your provided must be connected to `Rinkeby` Ethereum test network.
+For successful client initialization you need connected 0xcert framework provider instance. See [Using providers]() chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
 :::
 
 Once client is initialized, we define our asset ledger that we want to deploy.
