@@ -54,6 +54,7 @@ module.exports = {
             'guides/transfer-asset',
             'guides/update-asset-imprint',
             'guides/destroy-asset',
+            'guides/set-asset-ledger-abilities',
           ],
         },
         {
