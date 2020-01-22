@@ -2,7 +2,7 @@
 
 Asset ledger represents a non-fungible smart contract on the Ethereum blockchain. It represents a container holding assets of a specific type and format. In this guide we deploy a new asset ledger to the blockchain for our imaginary educational math course.
 
-We begin by importing the modules.
+We begin by importing the client modules.
 
 ```ts
 import { AssetLedgerCapability, Priority, Client } from '@0xcert/client';
@@ -13,10 +13,13 @@ Before we can start with asset ledger deployment we must initialize our client f
 ```ts
 const client = new Client({
   provider,
-  apiUrl: 'https://api.0xcert.org',
+  apiUrl: 'https://api-staging.0xcert.org',
 });
 await client.init();
 ```
+::: warning
+For successful client initialization you need connected 0xcert framework provider instance. See [Using providers]() chapter for detailed instructions. Your provided must be connected to `Rinkeby` Ethereum test network.
+:::
 
 Once client is initialized, we define our asset ledger that we want to deploy.
 
@@ -26,9 +29,14 @@ const assetLedgerDeployment = {
   symbol: 'MCC',
   uriPrefix: 'http://example-domain.com',
   uriPostfix: '.json',
-  schemaId: '0x3f4a0870cd6039e6c987b067b0d28de54efea17449175d7a8cd6ec10ab23cc5d',
-  capabilities: [AssetLedgerCapability.TOGGLE_TRANSFERS],
-  ownerId: '0xcc567f78e8821fb8d19f7e6240f44553ce3dbfce',
+  schemaId: '44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a',
+  capabilities: [
+    AssetLedgerCapability.TOGGLE_TRANSFERS,
+    AssetLedgerCapability.DESTROY_ASSET,
+    AssetLedgerCapability.REVOKE_ASSET,
+    AssetLedgerCapability.UPDATE_ASSET
+  ],
+  ownerId: provider.accountId,
 };
 ```
 
@@ -48,15 +56,15 @@ const deployment = await client.createDeployment(assetLedgerDeployment, Priority
 Make sure you have enough credits to perform this action.
 :::
 
-Since deployment might take some time, we can check the deployment's status by requesting its data again.
+Since deployment might take some time, we can check the deployment's status by requesting its data.
 
 ```ts
-const status = await client.getDeployment(deployment.data.ref).then((data) => data.data.status);
+const status = await client.getDeployment(deployment.ref).then((data) => data.data.status);
 ```
 
-If the status of the deployment equals `7`, we know that our asset ledger was successfully deployed. Now we can request our deployed asset ledger data.
+If the status of the deployment equals to `7`, we know that our asset ledger was successfully deployed. Now we can request our deployed asset ledger data.
 
 ```ts
-const ledger = await client.getLedger(deployment.ledgerRef);
+const ledger = await client.getLedger(deployment.ledgerRef).then((data) => data.data);
 ```
 
