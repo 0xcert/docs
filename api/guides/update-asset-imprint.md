@@ -43,7 +43,7 @@ To update asset's imprint we need to generate new asset's imprint. You can learn
 Asset with the provided ID must exists on the provided asset ledger.
 :::
 
-As `senderId` we set `provider.accountId`, which means that we will be that we will be signing asset creation order.
+As `senderId` we set `provider.accountId`, which means that we will be signing update asset imprint creation order.
 
 ::: tip
 Account address specified as `senderId` can only update asset imprint if they are either the asset's owner or if they have been authorized by the asset's owner and have the ability to operate with it on their behalf.
