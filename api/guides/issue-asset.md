@@ -4,16 +4,6 @@
 
 In this guide, we will assume you have gone through the [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) guide and have deployed an asset ledger. You will also need a MetaMask/Bitski account with some credits.
 
-## Installation
-
-We recommend you employ the client module as an NPM package in your application.
-
-```shell
-$ npm i --save @0xcert/client
-```
-
-On our official [GitHub repository](https://github.com/0xcert/framework), we also host a compiled and minimized JavaScript file that you can directly include in your website. Please refer to the [API](/api/core.html) section to learn more about asset ledger.
-
 ## Usage overview
 
 We begin by importing the client modules.
@@ -35,7 +25,7 @@ await client.init();
 For successful client initialization you need connected 0xcert framework provider instance. See [Using providers]() chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
 :::
 
-Once our client is initialized, let's define our create asset action.
+Once client is initialized, we define our create asset action.
 
 ```ts
 const actionCreateAsset: ActionCreateAsset = {
