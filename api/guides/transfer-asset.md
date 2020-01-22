@@ -25,7 +25,7 @@ await client.init();
 For successful client initialization you need connected 0xcert framework provider instance. See [Using providers]() chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
 :::
 
-Once client is initialized, we define our create asset action.
+Once client is initialized, we define our transfer asset action.
 
 ```ts
 const actionTransferAsset: ActionTransferAsset = {
