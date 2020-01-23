@@ -37,6 +37,7 @@ module.exports = {
           collapsable: false,
           children: [
             'introduction/overview',
+            'introduction/use-cases',
             'introduction/how-it-works',
             'introduction/dashboard',
             'introduction/get-credits',
