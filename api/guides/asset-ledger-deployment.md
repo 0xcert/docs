@@ -4,17 +4,9 @@ Asset ledger represents a non-fungible smart contract on the Ethereum blockchain
 
 ## Prerequisites
 
-In this guide, we will assume you have gone through the [Certification]() guide and have a basic understandoing on how assets and schemas work. You will also need a MetaMask account with some credits.
+In this guide, we will assume you have gone through the [Installation](asset-ledger-deployment.html#asset-ledger-deployment) guide and have installed the client npm package.
 
-## Installation
-
-We recommend you employ the client module as an NPM package in your application.
-
-```shell
-$ npm i --save @0xcert/client
-```
-
-## Usage
+## Usage overview
 
 We begin by importing the client modules.
 
@@ -32,7 +24,7 @@ const client = new Client({
 await client.init();
 ```
 ::: warning
-For successful client initialization you need connected 0xcert framework provider instance. See [Using providers]() chapter for detailed instructions. Your provided must be connected to `Rinkeby` Ethereum test network.
+For successful client initialization you need connected 0xcert framework provider instance. See [Using providers]() chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
 :::
 
 Once client is initialized, we define our asset ledger that we want to deploy.
