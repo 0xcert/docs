@@ -24,12 +24,14 @@ On our official [GitHub repository](https://github.com/0xcert/framework), we als
 
 ## Usage overview
 
-To start developing the application, we have to first instantiate the [MetamaskProvider](/api/ethereum.html#metamask-provider) provider class. This is usually only needed once within the application.
+To start developing the application, we have to first instantiate the [MetamaskProvider](/api/ethereum.html#metamask-provider) provider class. This is usually only needed once within the application. When initializing we also set the gateway config. This is needed for the 0xcertAPI client to work properly.
 
 ```ts
-import { MetamaskProvider } from '@0xcert/ethereum-metamask-provider';
+import { MetamaskProvider, buildGatewayConfig, NetworkKind } from '@0xcert/ethereum-metamask-provider';
 
-const provider = new MetamaskProvider();
+const provider = new MetamaskProvider({
+  gatewayConfig: buildGatewayConfig(NetworkKind.RINKEBY)
+});
 ```
 
 MetaMask needs to be authorized and unlocked to be used on the website. This is specific to this provider. Therefore, before you start interacting with the Ethereum node, you should check whether the MetaMask account has been enabled. If not, you have to enable it, as shown in the example below.
