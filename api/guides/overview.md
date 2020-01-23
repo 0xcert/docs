@@ -1,3 +1,5 @@
+<img src="/api-icon.svg" class="icon"/>
+
 # Overview
 
 The 0xcertAPI is an API service built on top of the entire 0xcert technology infrastructure. The API was purposely built to speed up adoption of blockchain technologies, since it provides the same versatile functionality as the 0xcert Framework, but is much easier to work with and requires much less development expertise. 
