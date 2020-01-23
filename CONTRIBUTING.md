@@ -18,7 +18,7 @@ $ npm run dev
 You can build the documentation locally:
 
 ```sh
-$ npm run deploy
+$ npm run build
 ```
 
 You can deploy the documentation to GitHub pages:
