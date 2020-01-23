@@ -33,20 +33,16 @@ module.exports = {
     sidebar: {
       '/api/': [
         {
-          title: 'Introduction API',
-          collapsable: false,
-          children: [
-            'introduction/overview',
-            'introduction/use-cases',
-            'introduction/how-it-works',
-            'introduction/dashboard',
-            'introduction/get-credits',
-          ],
-        },
-        {
           title: 'Guides',
           collapsable: false,
           children: [
+            'guides/overview',
+            'guides/use-cases',
+            'guides/non-fungible-assets',
+            'guides/fungible-values',
+            'guides/atomic-operations',
+            'guides/dashboard',
+            'guides/get-credits',
             'guides/certification',
             'guides/providers',
             'guides/installation',
