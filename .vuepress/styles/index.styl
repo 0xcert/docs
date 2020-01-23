@@ -59,11 +59,17 @@ h5
     height: 30px !important
     
 .homepage .page
-  text-align center
+  background url('/background.svg') no-repeat right 50px
 
-  .intro 
-    margin 0 auto
-    max-width 800px
+  h1
+    text-align left
+    font-weight 300
+    font-size 32px
+    
+    @media (min-width: ($MQMobile + 1px))
+      margin-top 10% !important
+      margin-bottom 2rem !important
+      font-size 48px
   
   .content:not(.custom) > *:first-child
     margin-top: 2rem;
@@ -75,11 +81,16 @@ h5
   .button
     display inline-block
     color: white
-    background-color: #007AFF
+    background-color: #0971FF
     padding: 12px 45px
     font-weight bold
     border-radius: 5px 
-    margin: 2rem 0 2rem
+    margin: 2rem 0 0
+    transition background-color ease-in .2s
+
+    &:hover 
+      text-decoration none
+      background-color: #3C8CFF
 
   .page-edit
     display none
@@ -88,31 +99,39 @@ h5
     border-bottom: none;
     margin-top: 0;
     padding-top: 0;
-    margin-bottom: 2rem;
-    font-size: 21px;
+    margin-bottom: 1rem;
+    font-size: 24px;
 
-  .features
-    border-bottom: 1px solid #dfe2e5
-    padding: 2rem 0
-    padding-top: 0px
-    list-style: none
-    text-align: left
-
-    li
-      padding: 1rem
-
-    a
-      margin-top: 10px;
-
+  .navigator
     @media (min-width: ($MQMobile + 1px))
       display: flex
+      margin: 0 -1rem 0 -1rem
+
+    .box
+      text-align center
+      background-color: #1A1A1A
+      padding: 2.5rem 2rem
+      margin-bottom: 2rem;
+      transition background-color ease-in .2s
+
+      &:hover
+        background-color #232323
+
+      @media (min-width: ($MQMobile + 1px))
+        margin: 1rem;
+
+    .icon 
+      display inline-block
+      margin-bottom: 1rem  
 
   .products
-    padding: 0
-    list-style: none
-    margin: 3rem 0 2rem
-    justify-content: space-between
-    align-items: center
+    text-align center
+    padding 1.5rem 0 0
+    list-style none
+    margin 3rem 0 1rem
+    justify-content space-between
+    align-items center
+    border-top 1px solid #444  
 
     li
       padding-right 1rem
@@ -122,6 +141,7 @@ h5
       display flex
 
   .blockchains
+    text-align center
     padding-top 1rem
     
 .theme-default-content:not(.custom)

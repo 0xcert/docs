@@ -2,24 +2,26 @@
 pageClass: homepage
 ---
 
-![0xcert](/hero-image.svg)
+# Documentation
 
-<ul class="features">
-  <li style="width: 50%">
-    <strong>0xcert API</strong>
+<div class="navigator">
+  <div class="box">
+    <img src="/api-icon.svg" class="icon"/>
+    <h2>0xcert API</h2>
     <p>
-      A fully decentralised web service built on top of the existing 0xcert open-source infrastructure, which wraps 0xcert functionalities in a common API interface.
-      <a href="/api/core.html" class="button">Read more</a>
+      A <strong>fully decentralized web service</strong> built on top of the existing 0xcert open-source infrastructure, which wraps 0xcert functionalities in a common, easy to use API interface.
     </p>
-  </li>
-  <li style="width: 50%">
-    <strong>0xcert Framework</strong>
+    <a href="/api/introduction/overview" class="button">Read docs</a>
+  </div>
+  <div class="box">
+    <img src="/framework-icon.svg" class="icon"/>
+    <h2>0xcert Framework</h2>
     <p>
-      An open-source framework which provides <strong>a complete set of tools</strong> for building decentralized applications and enables management, digital representation, and ownership verification of <strong>unique assets </strong> such as certificates, artworks, and collectibles.
-      <a href="/guide/introduction.html" class="button">Read more</a>
+      An open-source framework which provides a <strong>complete set of tools</strong> for building decentralized applications and enables management and verification of unique assets.
     </p>
-  </li>
-</ul>
+    <a href="/framework/v2/" class="button">Read docs</a>
+  </div>
+</div>
 
 <ul class="products">
   <li>
