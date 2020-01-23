@@ -125,13 +125,18 @@ h5
       margin-bottom: 1rem  
 
   .products
+    opacity 0.5
     text-align center
     padding 1.5rem 0 0
     list-style none
     margin 3rem 0 1rem
     justify-content space-between
     align-items center
-    border-top 1px solid #444  
+    border-top 1px solid #444
+    transition opacity ease-in .2s
+
+    &:hover
+      opacity 1    
 
     li
       padding-right 1rem
@@ -141,8 +146,13 @@ h5
       display flex
 
   .blockchains
+    opacity 0.5
     text-align center
     padding-top 1rem
+    transition opacity ease-in .2s
+
+    &:hover
+      opacity 1
 
     .logos 
       display flex
@@ -232,3 +242,6 @@ tr:nth-child(2n)
 
 .theme-default-content code
   background-color: rgba(255,255,255,0.05);
+
+.sw-update-popup 
+  color #333
