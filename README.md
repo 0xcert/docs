@@ -1,4 +1,4 @@
-# 0xcert Framework documentation
+# 0xcert documentation
 
 Welcome to 0xcert documentation repository.
 

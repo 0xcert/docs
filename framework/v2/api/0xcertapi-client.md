@@ -486,7 +486,7 @@ An `asynchronous` class instance `function` which creates new actions order.
 |-|-
 | order.actions[] | [required] An `array` that can be of different types depending on what actions we want to perform. Option are: create asset, destroy asset, transfer asset, update asset imprint, transfer value, update ledger account permissions. You can find the definitions of the types bellow.
 | order.signersIds | [required] A `string[]` representing an ethereum addresses of the order signers.
-| order.payerId | A `string` representing an ethereum addresses of the order payer. If payer is not specified `wildcardSigner` field must be set to `true`. If payer is specified it must be listed as order signers in `signersIds` array.
+| order.payerId | A `string` representing an ethereum addresses of the order payer. If payer is not specified `wildcardSigner` field must be set to `true`. If payer is specified it must be listed as order signer in `signersIds` array.
 | order.wildcardSigner | [required] A `boolean` representing if the order allows wild card claiming.
 | order.automatedPerform | [required] A `boolean` representing if the order should be performed as soon as all conditions are met. If automated performed is disabled you need to call `performOrder(orderRef)` function to perform it.
 | priority | [required] An `integer` representing the priority of the actions order.
