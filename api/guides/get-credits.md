@@ -2,13 +2,13 @@
 
 ## NO ETH transaction
 
-Since the user does not actually perform a transaction on the blockchain but only signs it with their wallet they do not need any ETH. 0xcertAPI handles all the transaction payments and everything around it to make sure it completes successfully. 0xcertAPI however does charge for transactions. You can read more about this in the [Get credits]() section.
+Since the user does not actually perform a transaction on the blockchain but only signs it with their wallet they do not need any ETH. 0xcertAPI handles all the transaction payments and everything around it to make sure it completes successfully. 0xcertAPI however does charge for transactions.
 
 ## ZXC, dapp tokens
 
 TODO
 
-## zakaj rabimo
+## Usage
 
 TODO
 
@@ -21,7 +21,7 @@ There are two ways of getting credits
 
 ### Buy credits with credit card
 
-In [0xcertAPI dashboard](https://dashboard.0xcert.org) you have a deposit option which asks you how you would like to get tokens. If you choose credit card you can select the amount and directly get credits. Exchange rate for credits is 0.042 which means that for 1€ you get roughly 23,8 credits.
+In [0xcertAPI dashboard](https://dashboard.0xcert.org) you have a deposit option which asks you how you would like to get tokens. If you choose credit card you can select the amount and directly get credits. Exchange rate for credits is 0.042€ which means, that for 1€ you get roughly 23,8 credits.
 
 :::tip
 For rinkeby test network you can get credits for free by using credit card option and typing credit card information provided by the popup.
