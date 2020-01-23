@@ -11,7 +11,7 @@ This guide assumes an intermediate level knowledge of TypeScript and at least a 
 We recommend you employ the modules as an NPM package in your application.
 
 ```shell
-$ npm i --save $MODULE_NAME
+$ npm i --save @0xcert/client
 ```
 
 On our official [GitHub repository](https://github.com/0xcert/framework), we also host a compiled and minimized JavaScript file that you can directly include in your website. Please refer to the [API](/api/core.html) section to learn more about asset ledger.
