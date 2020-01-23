@@ -1,5 +1,11 @@
 # Issue asset
 
+It this guide we we will issue a new asset (to ourselfs) on an existing asset ledger.
+
+::: card Live example
+Click [here](https://codesandbox.io/s/github/0xcert/api-example-order?module=%2FREADME.md) to check the live example for this section. There are multiple actions in this example.
+:::
+
 ## Prerequisites
 
 In this guide, we will assume you have gone through the [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) guide and have deployed an asset ledger. You will also need a MetaMask/Bitski account with some credits.
@@ -22,7 +28,7 @@ const client = new Client({
 await client.init();
 ```
 ::: warning
-For successful client initialization you need connected 0xcert framework provider instance. See [Using providers]() chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
+For successful client initialization you need connected 0xcert framework provider instance. See [Using providers](providers.html#providers) chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
 :::
 
 Once client is initialized, we define our create asset action.
@@ -37,7 +43,7 @@ const actionCreateAsset: ActionCreateAsset = {
   imprint: 'd747e6ffd1aa3f83efef2931e3cc22c653ea97a32c1ee7289e4966b6964ecdfb',
 };
 ```
-To create a new asset we need to generate its imprint. You can learn more about generating imprints in the [Certification]() guide. As `assetLedgerId` we must provide the ID of our newly deployed asset ledger from guide [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) or any other deployed ledger. As `senderId` we set `provider.accountId`, which means that we will be signing asset creation order. We set the asset's id to `100`, and for the `receiverId`, we set `provider.accountId`, which means we are creating asset for ourselves.
+To create a new asset we need to generate its imprint. You can learn more about generating imprints in the [Certification](certification.html#certification) guide. As `assetLedgerId` we must provide the ID of our newly deployed asset ledger from guide [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) or any other deployed ledger. As `senderId` we set `provider.accountId`, which means that we will be signing asset creation order. We set the asset's id to `100`, and for the `receiverId`, we set `provider.accountId`, which means we are creating asset for ourselves.
 
 ::: tip
 The `provider.accountId` is your currently selected provider account. If you want someone else to be the receiver, enter their account address instead.
@@ -63,7 +69,7 @@ const order = {
 };
 ```
 
-Order must be signed by all of the accounts specified in `signersIds` array. In our case, we are creating asset for ourself, so we are the only signer of the order. We add our defined crete asset action in `actions` array. There can be multiple different actions present in one order and they will be atomically performed. If `wildcardSigner` is set to `true` order can be signed by any account. In our case we need only our signature for the order to be successfully performed, so we set `wildcardSigner` to `false`. We want our order to be performed as soon as it can be, so we enable automated performance of the order by setting `automatedPerform` to `true`. Order will be automatically performed after all of the requirements of the order are fulfilled. If `automatedPerform` was set to `false` we would need to call `performOrder(orderRef)` function after the order creation. As `payerId` we set `provider.accountId`, so we will be paying for the execution of the order.
+Order must be signed by all of the accounts specified in `signersIds` array. In our case, we are creating asset for ourself, so we are the only signer of the order. We add our defined crete asset action in `actions` array. There can be multiple different actions present in one order and they will be atomically performed. If `wildcardSigner` is set to `true` order can be signed by any account. In our case we need only our signature for the order to be successfully performed, so we set `wildcardSigner` to `false`. We want our order to be performed as soon as it can be, so we enable automated performance of the order by setting `automatedPerform` to `true`. Order will be automatically performed after all of the requirements of the order are fulfilled. If `automatedPerform` was set to `false` we would need to call `performOrder(orderRef)` function after the order creation. As `payerId` we set `provider.accountId`, so we will be paying for the execution of the order. To learn more about different scenarios check out the [Additional scenarios](additional-scenarions.html) section.
 
 ::: warning
 If payer is not specified `wildcardSigner` field must be set to `true` and order's payer will be set automatically. If payer is specified it must be listed as order signer in `signersIds` array.

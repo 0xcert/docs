@@ -2,6 +2,10 @@
 
 Asset ledger represents a non-fungible smart contract on the Ethereum blockchain. It represents a container holding assets of a specific type and format. In this guide we deploy a new asset ledger to the blockchain for our imaginary educational math course.
 
+::: card Live example
+Click [here](https://codesandbox.io/s/github/0xcert/api-example-deployment?module=%2FREADME.md) to check the live example for this section.
+:::
+
 ## Prerequisites
 
 In this guide, we will assume you have gone through the [Installation](asset-ledger-deployment.html#asset-ledger-deployment) guide and have installed the client npm package.

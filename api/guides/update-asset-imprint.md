@@ -1,8 +1,15 @@
 # Update asset imprint
 
+When issued assets data that was generates through certification changes the data on blockchain needs to change as well. This is where updating asset imprint comes into play.
+In this guide we will update an existing assets imprint.
+
 ## Prerequisites
 
 In this guide, we will assume you have gone through the [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) guide and have deployed an asset ledger and that you have gone trough [Issue asset](asset-ledger-deployment.html#asset-ledger-deployment) guide and created asset. You will also need a MetaMask/Bitski account with some credits.
+
+::: warning
+Asset ledger must have `UPDATE_ASSET` capability.
+:::
 
 ## Usage overview
 
@@ -17,12 +24,12 @@ Before we can start transferring assets we must initialize our client first.
 ```ts
 const client = new Client({
   provider,
-  apiUrl: 'https://api.0xcert.org',
+  apiUrl: 'https://api-staging.0xcert.org',
 });
 await client.init();
 ```
 ::: warning
-For successful client initialization you need connected 0xcert framework provider instance. See [Using providers]() chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
+For successful client initialization you need connected 0xcert framework provider instance. See [Using providers](providers.html#providers) chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
 :::
 
 Once client is initialized, we define our update asset imprint action.
@@ -37,7 +44,7 @@ const actionUpdateAssetImprint: ActionUpdateAssetImprint = {
 };
 ```
 
-To update asset's imprint we need to generate new asset's imprint. You can learn more about generating imprints in the [Certification]() guide. As `assetLedgerId` we must provide the ID of our newly deployed asset ledger from guide [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) or any other deployed ledger. We specify which issued asset we want to update by setting `id` to the ID of the asset. We can use asset we created in guide [Issue asset]() or any other created asset that we own.
+To update asset's imprint we need to generate new asset's imprint. You can learn more about generating imprints in the [Certification](certification.html#certification) guide. As `assetLedgerId` we must provide the ID of our newly deployed asset ledger from guide [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) or any other deployed ledger. We specify which issued asset we want to update by setting `id` to the ID of the asset. We can use asset we created in guide [Issue asset](issue-asset.html#issue-asset) or any other created asset that we own.
 
 ::: warning
 Asset with the provided ID must exists on the provided asset ledger.
@@ -65,7 +72,7 @@ const order = {
 };
 ```
 
-Order must be signed by all of the accounts specified in `signersIds` array. In our case, we are updating our asset, so we are the only signer of the order. We add our defined update asset imprint action in `actions` array. There can be multiple different actions present in one order and they will be atomically performed. If `wildcardSigner` is set to `true` order can be signed by any account. In our case we need only our signature for the order to be successfully performed, so we set `wildcardSigner` to `false`. We want our order to be performed as soon as it can be, so we enable automated performance of the order by setting `automatedPerform` to `true`. Order will be automatically performed after all of the requirements of the order are fulfilled. If `automatedPerform` was set to `false` we would need to call `performOrder(orderRef)` function after the order creation. As `payerId` we set `provider.accountId`, so we will be paying for the execution of the order.
+Order must be signed by all of the accounts specified in `signersIds` array. In our case, we are updating our asset, so we are the only signer of the order. We add our defined update asset imprint action in `actions` array. There can be multiple different actions present in one order and they will be atomically performed. If `wildcardSigner` is set to `true` order can be signed by any account. In our case we need only our signature for the order to be successfully performed, so we set `wildcardSigner` to `false`. We want our order to be performed as soon as it can be, so we enable automated performance of the order by setting `automatedPerform` to `true`. Order will be automatically performed after all of the requirements of the order are fulfilled. If `automatedPerform` was set to `false` we would need to call `performOrder(orderRef)` function after the order creation. As `payerId` we set `provider.accountId`, so we will be paying for the execution of the order. To learn more about different scenarios check out the [Additional scenarios](additional-scenarions.html) section.
 
 ::: warning
 If payer is not specified `wildcardSigner` field must be set to `true` and order's payer will be set automatically. If payer is specified it must be listed as order signer in `signersIds` array.
