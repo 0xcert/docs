@@ -1,8 +1,14 @@
 # Destroy asset
 
+If asset represents a real world object or something else that can be destroyed there also has to be an option to destroy the digital representation. In this guide we will should you how do destroy an existing asset.
+
 ## Prerequisites
 
 In this guide, we will assume you have gone through the [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) guide and have deployed an asset ledger and that you have gone trough [Issue asset](asset-ledger-deployment.html#asset-ledger-deployment) guide and created asset. You will also need a MetaMask/Bitski account with some credits.
+
+::: warning
+Asset ledger must have `DESTROY_ASSET` capability.
+:::
 
 ## Usage overview
 
@@ -17,12 +23,12 @@ Before we can start destroying assets we must initialize our client first.
 ```ts
 const client = new Client({
   provider,
-  apiUrl: 'https://api.0xcert.org',
+  apiUrl: 'https://api-staging.0xcert.org',
 });
 await client.init();
 ```
 ::: warning
-For successful client initialization you need connected 0xcert framework provider instance. See [Using providers]() chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
+For successful client initialization you need connected 0xcert framework provider instance. See [Using providers](providers.html#providers) chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
 :::
 
 Once client is initialized, we define our destroy asset action.
@@ -36,7 +42,7 @@ const actionDestroyAsset: ActionDestroyAsset = {
 };
 ```
 
-As `assetLedgerId` we must provide the ID of our newly deployed asset ledger from guide [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) or any other deployed ledger. We specify which issued asset we want to destroy by setting `id` to the ID of the asset. We can use asset we created in guide [Issue asset]() or any other created asset that we own.
+As `assetLedgerId` we must provide the ID of our newly deployed asset ledger from guide [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) or any other deployed ledger. We specify which issued asset we want to destroy by setting `id` to the ID of the asset. We can use asset we created in guide [Issue asset](issue-asset.html#issue-asset) or any other created asset that we own.
 
 ::: warning
 Asset with the provided ID must exists on the provided asset ledger.

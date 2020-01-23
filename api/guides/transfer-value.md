@@ -1,5 +1,11 @@
 # Transfer value
 
+In this guide we will transfer value to a specific receiver. For simplicity we will be transfering credits since you already obtained them. But credits can only transfered to one specific address. This is because credits are made to be used only for a specific purpose. When you want to transfer some other ERC20 token you can transfer to anyone.
+
+::: card Live example
+Click [here](https://codesandbox.io/s/github/0xcert/api-example-order?module=%2FREADME.md) to check the live example for this section. There are multiple actions in this example.
+:::
+
 ## Prerequisites
 
 You will need a MetaMask/Bitski account with some credits.
@@ -17,12 +23,12 @@ Before we can start transferring `ERC20` assets we must initialize our client fi
 ```ts
 const client = new Client({
   provider,
-  apiUrl: 'https://api.0xcert.org',
+  apiUrl: 'https://api-staging.0xcert.org',
 });
 await client.init();
 ```
 ::: warning
-For successful client initialization you need connected 0xcert framework provider instance. See [Using providers]() chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
+For successful client initialization you need connected 0xcert framework provider instance. See [Using providers](providers.html#providers) chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
 :::
 
 Once client is initialized, we define our transfer value action.
@@ -30,7 +36,7 @@ Once client is initialized, we define our transfer value action.
 ```ts
 const actionTransferValue: ActionTransferValue = {
   kind: ActionKind.TRANSFER_VALUE,
-  valueLedgerId: '0xcc567f78e8821fb8d19f7e6240f44553ce3dbfce',
+  valueLedgerId: '0xDaD2363a110309a294973da86c9C3681154394Ff',
   senderId: provider.accountId,
   receiverId: '0xF9196F9f176fd2eF9243E8960817d5FbE63D79aa',
   value: 100

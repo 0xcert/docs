@@ -1,5 +1,11 @@
 # Issue asset
 
+It this guide we we will issue a new asset (to ourselfs) on an existing asset ledger.
+
+::: card Live example
+Click [here](https://codesandbox.io/s/github/0xcert/api-example-order?module=%2FREADME.md) to check the live example for this section. There are multiple actions in this example.
+:::
+
 ## Prerequisites
 
 In this guide, we will assume you have gone through the [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) guide and have deployed an asset ledger. You will also need a MetaMask/Bitski account with some credits.
@@ -22,7 +28,7 @@ const client = new Client({
 await client.init();
 ```
 ::: warning
-For successful client initialization you need connected 0xcert framework provider instance. See [Using providers]() chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
+For successful client initialization you need connected 0xcert framework provider instance. See [Using providers](providers.html#providers) chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
 :::
 
 Once client is initialized, we define our create asset action.
@@ -37,7 +43,7 @@ const actionCreateAsset: ActionCreateAsset = {
   imprint: 'd747e6ffd1aa3f83efef2931e3cc22c653ea97a32c1ee7289e4966b6964ecdfb',
 };
 ```
-To create a new asset we need to generate its imprint. You can learn more about generating imprints in the [Certification]() guide. As `assetLedgerId` we must provide the ID of our newly deployed asset ledger from guide [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) or any other deployed ledger. As `senderId` we set `provider.accountId`, which means that we will be signing asset creation order. We set the asset's id to `100`, and for the `receiverId`, we set `provider.accountId`, which means we are creating asset for ourselves.
+To create a new asset we need to generate its imprint. You can learn more about generating imprints in the [Certification](certification.html#certification) guide. As `assetLedgerId` we must provide the ID of our newly deployed asset ledger from guide [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) or any other deployed ledger. As `senderId` we set `provider.accountId`, which means that we will be signing asset creation order. We set the asset's id to `100`, and for the `receiverId`, we set `provider.accountId`, which means we are creating asset for ourselves.
 
 ::: tip
 The `provider.accountId` is your currently selected provider account. If you want someone else to be the receiver, enter their account address instead.
