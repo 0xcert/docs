@@ -47,7 +47,7 @@ pageClass: homepage
 </ul>
 
 <div class="blockchains">
-  <h4>Supported blockchains and:</h4>  
+  <h4>Supported blockchains and clients:</h4>
   <div class="logos">
     <img src="/ethereum.png"/>
     <img src="/wanchain.png"/>
