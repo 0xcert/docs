@@ -55,18 +55,3 @@ Make sure your MetaMask account is connected to the Ethereum Ropsten network.
 ::: tip
 To perform this deployment step, you'll need to pay some gas on the Ethereum network. You can get free Ether in your wallet on the Ropsten network via [this link](https://faucet.ropsten.be/).
 :::
-
-## Error handling
-
-If any error happens on the blockchain, providers are able to handle it and throw a meaningful error, so you know exactly what went wrong.
-
-Error example: 
-
-```ts
-{
-  name: 'ProviderError',
-  issue: '001001',
-  original: '', // optional
-  message: 'Sender does not have sufficient balance.'
-}
-```
