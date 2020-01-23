@@ -27,8 +27,8 @@ You can get top up your balance easily through `Deposit credits` button in a bal
 
 Unused credits can be easily be withdrawn too. Note that they will be converted into ZXC tokens, since credit dapp tokens are only available and usable inside the 0xcert API environment.
 
-:::warning
-When on mainnet, the Dashboard usage will require your valid details for accounting purposes.
+:::tip NOTE
+On mainnet, you need to provide your valid details for accounting purposes. You will be prompt to provide them before accessing the Dashboard.
 :::
 
 ## Requests
