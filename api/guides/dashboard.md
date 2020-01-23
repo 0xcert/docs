@@ -36,3 +36,17 @@ When on mainnet, the Dashboard usage will require your valid details for account
 In **Requests** section you can find a list of all queries and mutations your dapp made to an API client. By clicking on each line, you get all the details of specific request, so you can easily debug your dapp.
 
 ![Request details](../assets/request-details.svg)
+
+## Ledgers
+
+In **Ledgers** section you can see all deployed ledgeers and theirs Ethereum addresses.
+
+## Webhooks
+
+Webhooks are a way that apps can send automated messages or information to your other app, when specific event occurs. You can subscribe to:
+* Order request changed events
+* Order request errors events
+* Deploy request changed events
+* Deploy request errors events
+
+If none of the options is selected, the account will be subscribed to all of them and will send all events to defined webhooks URL.
