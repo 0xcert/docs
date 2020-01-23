@@ -27,7 +27,7 @@ module.exports = {
     editLinkText: 'Help us improve this page.',
     nav: [
       { text: 'Framework', link: '/framework/v2/' },
-      { text: '0xcertAPI', link: '/api/' },
+      { text: '0xcertAPI', link: '/api/guides/overview' },
       { text: 'Website', link: 'https://0xcert.org' },
     ],
     sidebar: {
