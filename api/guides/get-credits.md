@@ -1,28 +1,28 @@
 # Get credits
 
-## No ETH transaction
+0xcert strives to increase adoption of blockchain technologies, which is in large part held back by its poor user experience. Payments of blockchain services are usually done with cryptocurrency, which can be a frustrating experienc on its own. To circumvent this, we have vastly simplified the purchasing process and made 0xcert services much more user firendly from the begining. 
 
-Since the user does not actually perform a transaction on the blockchain but only signs it with their wallet, they do not need any ETH. 0xcertAPI handles all the transaction payments, and everything around it to make sure it completes successfully. 0xcertAPI however does charge for transactions - with credits.
+Actions performed with the 0xcertAPI are denominated in Credits, exact pricing can be viewed on the [price list](https://dashboard.0xcert.org/costs/). There are two ways of getting Credits: (1) purchasing them with a credit card, or (2) using ZXC utility tokens purchased on external exchanges. There is also a third component that smoothens out the whole user experience, so called dapp tokens, which are known as Credits on all 0xcert services.
 
-## ZXC is the new Credit
+## ZXC and dapp tokens
 
-With release of 0xcert Framework 2 and its companion 0xcert API, we've utilized our community backed ZXC tokens and used them as a **payment medium** of 0xcert ecosystem. 
+The 0xcert ecosystems makes use of two different (fungible) tokens, ZXC utility tokens and dapp tokens.
 
-Each ZXC token in 0xcert ecosystem holds its **initial value of 0.043€**, and can be converted into **one credit** of the same value. (Under the hood, a credit unit is also a dapp token, which we gave a meaning name.) 
+* **ZXC tokens** are utility tokens used to pay for behind-the-scenes operations in dapps built using the 0xcert framework. You can think of ZXC as both a unit of value for 0xcert services and a bridge between blockchain and real-world use cases. ZXC tokens can be converted into dapp tokens.
+* **Dapp tokens** are Credits users spend to buy products and services offered by individual dapps and services built on 0xcert. 
 
-## Usage
+## Why dapp tokens?
 
-Credits are the core of 0xcert API and can be used for various services, including:
+The introduction of dapp tokens allows us to update our products and services in a much more dynamic way than using ZXC directly. In turn, this allows us to streamline certain processes, offer a more dynamic infrastructure overall, and help provide a cutting-edge user experiences. Using dapp tokens instead of ZXC tokens also hides the complexity of blockchain for end users, vastly improving ease of use. One of the most important ways it achieves this is through the fiat gateway. From a legal perspective, we can’t facilitate fiat-to-crypto or crypto-to-fiat payments directly without becoming an exchange. Using dapp tokens as a common denominator makes it possible for us to provide a fiat gateway without becoming an exchange.
 
-  * Asset creation
-  * Transfer of assets	
-  * Transfer of value	(tokens)
-  * Asset updates
-  * Ledger abilities settings
-  * Asset ledger deployment
-  * Value ledger deployment
+## How does it work under the hood?
 
-The best part of using Credits is that each action on 0xcert API is performed in a safe and proven way, and have always the same cost, regardless of the blockchain's current gas price. On top of all, you don't ever need to spend your valuable ETH.
+As mentioned, there are two ways of getting Credits: purchasing them with a credit card or with the use of ZXC tokens. Behind the scenes, her fiat money is exchanged for ZXC tokens, which are then swapped for credits—dapp tokens—that show up in user account. If users decide to directly use ZXC tokens, then the first step is skipped and ZXCs are directly swapped for Credits (dapp tokens).
+
+Technically, dapp tokens are modified ERC20 tokens. They can only be used to pay for 0xcert services, cannot be cashed out, and are non-transferable. The total number of dapp tokens is dynamic and relative to the total amount of locked ZXC tokens into dapp tokens. The conversion rate between ZXC and dapp tokens is 1:1. Because of this, all calculations done in ZXC are also valid for dapp tokens, and vice versa.
+
+Currently the price of one ZXC token is fixed at 0.042 EUR throughout all 0xcert services. For example, if an action on the 0xcertAPI is priced at 1 EUR, the cost will come out to 1 EUR/0.042 EUR = ~23.8 ZXC.
+
 
 ## How to get credits
 
@@ -47,7 +47,7 @@ For rinkeby test network you can get credits for free by using credit card optio
 
 ### Exchange ZXC for credits
 
-If you own ZXC tokens you can exchange them for credits in the ration 1 ZXC = 1 credit. This option is only available on mainnet. Once out of beta, you'll be able to simply select amount of ZXC you want to convert to credits and hit convert. In couple of minutes your balance will be filled with selected amount of credits.
+If you own ZXC tokens you can exchange them for credits in the ration 1 ZXC = 1 credit. More information on how to do this will be available when the 0xcertAPI comes out of beta.
 
 ## Withdrawal
 
