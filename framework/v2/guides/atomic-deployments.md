@@ -33,10 +33,10 @@ import { Gateway } from '@0xcert/ethereum-gateway';
 Then, we create a new instance of the `Gateway` class with an ID that points to a pre-deployed gateway on the Ethereum Ropsten network (this option can also be configured in the provider).
 
 ```ts
-const gateway = Gateway.getInstance(provider, getGatewayConfig(NetworkKind.ROPSTEN));
+const gateway = Gateway.getInstance(provider, buildGatewayConfig(NetworkKind.ROPSTEN));
 ```
 
-`getGatewayConfig` will always return the latest contract versions for a specific package version. If you want to configure gateway config on your own, you can find our already deployed addresses [here]().
+`buildGatewayConfig` will always return the latest contract versions for a specific package version. If you want to configure gateway config on your own, you can find our already deployed addresses [here](/framework/v2/api/ethereum-connectors.html#public-addresses).
 
 ## Asset ledger deploy order
 
