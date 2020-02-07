@@ -97,7 +97,7 @@ A `synchronous` class instance `function` to manually trigger a provider event.
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [provider event](./ethereum.md#provider-events) name.
+| event | [required] A `string` representing a [provider event](#provider-events) name.
 | options | [required] Pass valid current and previous account ID for `ACCOUNT_CHANGE` event or valid current and previous network version for `NETWORK_CHANGE` event.
 
 **Result:**
@@ -270,7 +270,7 @@ A `synchronous` class instance `function` which attaches a new event handler.
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [provider event](./ethereum.md#provider-events) name.
+| event | [required] A `string` representing a [provider event](#provider-events) name.
 | handler | [required] A callback `function` which is triggered on each `event`. When the `event` equals `ACCOUNT_CHANGE`, the first argument is a new account ID, and the second argument is the old ID, and when the `event` equals `NETWORK_CHANGE`, the first argument is a new network version and the second argument is the old version.
 
 **Result:**
@@ -299,7 +299,7 @@ A `synchronous` class instance `function` which attaches a new event handler. Th
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [provider event](./ethereum.md#provider-events) name.
+| event | [required] A `string` representing a [provider event](#provider-events) name.
 | handler | [required] A callback `function` which is triggered on each `event`. When the `event` equals `ACCOUNT_CHANGE`, the first argument is a new account ID, and the second argument is the old ID, and when the `event` equals `NETWORK_CHANGE`, the first argument is a new network version and the second argument is the old version.
 
 **Result:**
@@ -328,7 +328,7 @@ A `synchronous` class instance `function` which removes an existing event handle
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [provider event](./ethereum.md#provider-events) name.
+| event | [required] A `string` representing a [provider event](#provider-events) name.
 | handler | A specific callback `function` of an event. If not provided, all handlers of the `event` are removed.
 
 **Result:**
@@ -477,7 +477,7 @@ A `synchronous` class instance `function` to manually trigger a provider event.
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [provider event](./ethereum.md#provider-events) name.
+| event | [required] A `string` representing a [provider event](#provider-events) name.
 | options | [required] Pass valid current and previous account ID for `ACCOUNT_CHANGE` event or valid current and previous network versions for `NETWORK_CHANGE` event.
 
 **Result:**
@@ -681,7 +681,7 @@ A `synchronous` class instance `function` which attaches a new event handler.
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [provider event](./ethereum.md#provider-events) name.
+| event | [required] A `string` representing a [provider event](#provider-events) name.
 | handler | [required] A callback `function` which is triggered on each `event`. When the `event` equals `ACCOUNT_CHANGE`, the first argument is a new account ID and the second argument is the old ID, and when the `event` equals `NETWORK_CHANGE`, the first argument is a new network version and the second argument is the old version.
 
 **Result:**
@@ -710,7 +710,7 @@ A `synchronous` class instance `function` which attaches a new event handler. Th
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [provider event](./ethereum.md#provider-events) name.
+| event | [required] A `string` representing a [provider event](#provider-events) name.
 | handler | [required] A callback `function` which is triggered on each `event`. When the `event` equals `ACCOUNT_CHANGE`, the first argument is a new account ID and the second argument is the old ID, and when the `event` equals `NETWORK_CHANGE`, the first argument is a new network version and the second argument is the old version.
 
 **Result:**
@@ -739,7 +739,7 @@ A `synchronous` class instance `function` which removes an existing event handle
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [provider event](./ethereum.md#provider-events) name.
+| event | [required] A `string` representing a [provider event](#provider-events) name.
 | handler | A specific callback `function` of an event. If not provided, all handlers of the `event` are removed.
 
 **Result:**
@@ -908,7 +908,7 @@ A `synchronous` class instance `function` to manually trigger a provider event.
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [provider event](./ethereum.md#provider-events) name.
+| event | [required] A `string` representing a [provider event](#provider-events) name.
 | options | [required] Pass valid current and previous account ID for `ACCOUNT_CHANGE` event or valid current and previous network version for `NETWORK_CHANGE` event.
 
 **Result:**
@@ -1105,7 +1105,7 @@ A `synchronous` class instance `function` which attaches a new event handler.
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [provider event](./ethereum.md#provider-events) name.
+| event | [required] A `string` representing a [provider event](#provider-events) name.
 | handler | [required] A callback `function` which is triggered on each `event`. When the `event` equals `ACCOUNT_CHANGE`, the first argument is a new account ID and the second is the old one, and when the `event` equals `NETWORK_CHANGE`, the first argument is a new network version and the second is the old one.
 
 **Result:**
@@ -1134,7 +1134,7 @@ A `synchronous` class instance `function` which attaches a new event handler. Th
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [provider event](./ethereum.md#provider-events) name.
+| event | [required] A `string` representing a [provider event](#provider-events) name.
 | handler | [required] A callback `function` which is triggered on each `event`. When the `event` equals `ACCOUNT_CHANGE`, the first argument is a new account ID and the second is the old one, and when the `event` equals `NETWORK_CHANGE`, the first argument is a new network version and the second is the old one.
 
 **Result:**
@@ -1163,7 +1163,7 @@ A `synchronous` class instance `function` which removes an existing event handle
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [provider event](./ethereum.md#provider-events) name.
+| event | [required] A `string` representing a [provider event](#provider-events) name.
 | handler | A specific callback `function` of an event. If not provided, all handlers of the `event` are removed.
 
 **Result:**
@@ -1444,7 +1444,7 @@ A `synchronous` class instance `function` which attaches a new event handler.
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [provider event](./ethereum.md#provider-events) name.
+| event | [required] A `string` representing a [provider event](#provider-events) name.
 | handler | [required] A callback `function` which is triggered on each `event`. When the `event` equals `ACCOUNT_CHANGE`, the first argument is a new account ID and the second is the old one.
 
 **Result:**
@@ -1473,7 +1473,7 @@ A `synchronous` class instance `function` which attaches a new event handler. Th
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [provider event](./ethereum.md#provider-events) name.
+| event | [required] A `string` representing a [provider event](#provider-events) name.
 | handler | [required] A callback `function` which is triggered on each `event`. When the `event` equals `ACCOUNT_CHANGE`, the first argument is a new account ID and the second is the old one.
 
 **Result:**
@@ -1502,7 +1502,7 @@ A `synchronous` class instance `function` which removes an existing event handle
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [provider event](./ethereum.md#provider-events) name.
+| event | [required] A `string` representing a [provider event](#provider-events) name.
 | handler | A specific callback `function` of an event. If not provided, all handlers of the `event` are removed.
 
 **Result:**
@@ -1658,7 +1658,7 @@ A `synchronous` class instance `function` to manually trigger a mutation event.
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [mutation event](./ethereum.md#mutation-events) name.
+| event | [required] A `string` representing a [mutation event](#mutation-events) name.
 | options | For `ERROR` event, an instance of an `Error` must be provided.
 
 **Result:**
@@ -1739,7 +1739,7 @@ A `synchronous` class instance `function` which attaches a new event handler.
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [mutation event](./ethereum.md#mutation-events) name.
+| event | [required] A `string` representing a [mutation event](#mutation-events) name.
 | handler | [required] A callback `function` which is triggered on each `event`. When the `event` equals `ERROR`, the first argument is an `Error`, otherwise, the current `Mutation` instance is received.
 
 **Result:**
@@ -1768,7 +1768,7 @@ A `synchronous` class instance `function` which attaches a new event handler. Th
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [mutation event](./ethereum.md#mutation-events) name.
+| event | [required] A `string` representing a [mutation event](#mutation-events) name.
 | handler | A callback `function` which is triggered on each `event`. When the `event` equals `ERROR`, the first argument is an `Error`, otherwise, the current `Mutation` instance is received.
 
 **Result:**
@@ -1797,7 +1797,7 @@ A `synchronous` class instance `function` which removes an existing event.
 
 | Argument | Description
 |-|-
-| event | [required] A `string` representing a [mutation event](./ethereum.md#mutation-events) name.
+| event | [required] A `string` representing a [mutation event](#mutation-events) name.
 | handler | A specific callback `function` of an event. If not provided, all handlers of the `event` are removed.
 
 **Result:**
