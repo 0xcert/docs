@@ -10,4 +10,4 @@ Apart from the cryptocurrencies on the market today like Bitcoin, Ethereum, Lite
 
 ## Utility tokens
 
-The 0xcertAPI uses [ERC-20](https://eips.ethereum.org/EIPS/eip-20) utility Dapp tokens as payments for its servies. More can be found it the [Get credits]() section.
+The 0xcert API uses [ERC-20](https://eips.ethereum.org/EIPS/eip-20) utility Dapp tokens as payments for its servies. More can be found it the [Get credits]() section.

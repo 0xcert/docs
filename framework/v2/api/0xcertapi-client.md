@@ -1,4 +1,4 @@
-# 0xcertAPI client
+# 0xcert API client
 
 The 0xcert API Client is a JavaScript library written in TypeScript, that provides a complete set of tools for easier communication with the 0xcert API. 0xcert API is language independent software as a service with a RESTful API endpoint built for developers.
 

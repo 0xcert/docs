@@ -1,6 +1,6 @@
 # Use Cases
 
-Similar to the 0xcert Framework, the 0xcertAPI can be used to cover a multitude of different use cases. Below is just a handful of applications because new cases are poping up on a almost daily basis. 
+Similar to the 0xcert Framework, the 0xcert API can be used to cover a multitude of different use cases. Below is just a handful of applications because new cases are poping up on a almost daily basis. 
 
 opiši interoperabilit, composability
 true digital ownership

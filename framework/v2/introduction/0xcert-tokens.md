@@ -14,7 +14,7 @@ The 0xcert Framework uses [ERC-20](https://eips.ethereum.org/EIPS/eip-20) utilit
 
 0xcert currently provides two services which both use ZXC and dapp tokens.
 
-* The first product built on the 0xcert infrastructure is [0xcertAPI](https://dashboard.0xcert.org), a decentralized gateway which packs the 0xcert Framework functions into a simple API service, where only dapp tokens are needed to perform blockchain transactions (no ETH). 
+* The first product built on the 0xcert infrastructure is [0xcert API](https://dashboard.0xcert.org), a decentralized gateway which packs the 0xcert Framework functions into a simple API service, where only dapp tokens are needed to perform blockchain transactions (no ETH). 
 
 * The second product is [Evidenspace](https://evidenspace.com), a platform built by the 0xcert team for issuing and managing non-fungible tokens, credentials, contracts, agreements, and more.
 
