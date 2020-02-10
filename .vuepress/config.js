@@ -37,7 +37,7 @@ module.exports = {
           collapsable: false,
           children: [
             ['guides/overview','Overview'],
-            'guides/use-cases',
+            // 'guides/use-cases',
             'guides/non-fungible-assets',
             'guides/fungible-values',
             'guides/atomic-operations',
