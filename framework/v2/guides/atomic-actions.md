@@ -44,7 +44,7 @@ We recommend you employ the package as an NPM package in your application.
 $ npm i --save @0xcert/ethereum-gateway
 ```
 
-In our official [GitHub repository](https://github.com/0xcert/framework), we also host a compiled and minimized JavaScript file that can be directly implemented in your website. Please refer to the [API](/api/core.html) section to learn more about gateway.
+In our official [GitHub repository](https://github.com/0xcert/framework), we also host a compiled and minimized JavaScript file that can be directly implemented in your website. Please refer to the [API](/framework/v2/api/ethereum-connectors.html) section to learn more about gateway.
 
 ## Initialization
 
@@ -57,10 +57,10 @@ import { Gateway } from '@0xcert/ethereum-gateway';
 Then, we create a new instance of the `Gateway` class with an ID that points to a pre-deployed gateway on the Ethereum Ropsten network (this option can also be configured in the provider).
 
 ```ts
-const gateway = Gateway.getInstance(provider, getGatewayConfig(NetworkKind.ROPSTEN));
+const gateway = Gateway.getInstance(provider, buildGatewayConfig(NetworkKind.ROPSTEN));
 ```
 
-`getGatewayConfig` will always return the latest contract versions for a specific package version. You can also configure gateway config on your own with our already deployed addresses [here]() or with your own addresses.
+`buildGatewayConfig` will always return the latest contract versions for a specific package version. You can also configure gateway config on your own with our already deployed addresses [here](/framework/v2/api/ethereum-connectors.html#public-addresses) or with your own addresses.
 
 ## Fixed actions order
 
