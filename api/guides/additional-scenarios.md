@@ -1,6 +1,6 @@
 # Additional scenarios
 
-In the guides we go trough all the actions that we can perform trough the 0xcertAPI. But all the scenarios are quite simple. You only have one signer (yourself), there is no wildcard signer and perform is automated. In this section we will go through other options and show you examples of how to do them.
+In the guides we go trough all the actions that we can perform trough the 0xcert API. But all the scenarios are quite simple. You only have one signer (yourself), there is no wildcard signer and perform is automated. In this section we will go through other options and show you examples of how to do them.
 
 ## Prerequisites
 

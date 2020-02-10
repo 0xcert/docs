@@ -1,2 +1,2 @@
-# Welcome to 0xcertAPI
+# Welcome to 0xcert API
 

@@ -27,7 +27,7 @@ module.exports = {
     editLinkText: 'Help us improve this page.',
     nav: [
       { text: 'Framework', link: '/framework/v2/' },
-      { text: '0xcertAPI', link: '/api/guides/overview' },
+      { text: '0xcert API', link: '/api/guides/overview' },
       { text: 'Website', link: 'https://0xcert.org' },
     ],
     sidebar: {
@@ -37,7 +37,7 @@ module.exports = {
           collapsable: false,
           children: [
             ['guides/overview','Overview'],
-            'guides/use-cases',
+            // 'guides/use-cases',
             'guides/non-fungible-assets',
             'guides/fungible-values',
             'guides/atomic-operations',
