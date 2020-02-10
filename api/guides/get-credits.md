@@ -1,6 +1,6 @@
 # Get credits
 
-0xcert strives to increase adoption of blockchain technologies, which is in large part held back by its poor user experience. Payments of blockchain services are usually done with cryptocurrency, which can be a frustrating experienc on its own. To circumvent this, we have vastly simplified the purchasing process and made 0xcert services much more user firendly from the begining. 
+0xcert strives to increase adoption of blockchain technologies, which is in large part held back by its poor user experience. Payments of blockchain services are usually done with cryptocurrency, which can be a frustrating experience on its own. To circumvent this, we have vastly simplified the purchasing process and made 0xcert services much more user friendly from the beginning. 
 
 Actions performed with the 0xcertAPI are denominated in Credits, exact pricing can be viewed on the [price list](https://dashboard.0xcert.org/costs/). There are two ways of getting Credits: (1) purchasing them with a credit card, or (2) using ZXC utility tokens purchased on external exchanges. There is also a third component that smoothens out the whole user experience, so called dapp tokens, which are known as Credits on all 0xcert services.
 
@@ -22,7 +22,6 @@ As mentioned, there are two ways of getting Credits: purchasing them with a cred
 Technically, dapp tokens are modified ERC20 tokens. They can only be used to pay for 0xcert services, cannot be cashed out, and are non-transferable. The total number of dapp tokens is dynamic and relative to the total amount of locked ZXC tokens into dapp tokens. The conversion rate between ZXC and dapp tokens is 1:1. Because of this, all calculations done in ZXC are also valid for dapp tokens, and vice versa.
 
 Currently the price of one ZXC token is fixed at 0.042 EUR throughout all 0xcert services. For example, if an action on the 0xcertAPI is priced at 1 EUR, the cost will come out to 1 EUR/0.042 EUR = ~23.8 ZXC.
-
 
 ## How to get credits
 
