@@ -278,10 +278,10 @@ Yes, the 0xcert Conventions are simply JSON objects, and you could create them y
 
 | Issue | Id | Description
 |-|-|-
-| [xcert](https://0xcert.org/conventions/xcert-schema.html) | e1823a17bb5dd039e2aff7d997223efed50dbeebb0fcb60cf7bba2a9b6f90140 | JSON Schema definition describing asset schema capabilities.
-| [86](https://0xcert.org/conventions/86-base-asset-schema.html) | 9a7531dd7ac3ed4e3d2fa61d20a825cfd4be7f3e6bc540c82d9dc94b526c5123 | Basic asset data schema.
-| [87](https://0xcert.org/conventions/87-asset-evidence-schema.html) | 02edbb4f2d07017d0ae9148af683a63d4b86d0d357a5019dd794d377a1523e9e | Asset evidence data schema.
-| [88](https://0xcert.org/conventions/88-crypto-collectible-schema.html) | cd3d7fce94669724f964061572f42ae0391996b0e348c7431251f9ab1bab0f49 | Schema describing digital collectible item.
+| [xcert](https://docs.0xcert.org/framework/v2/schemas/xcert-schema.html) | e1823a17bb5dd039e2aff7d997223efed50dbeebb0fcb60cf7bba2a9b6f90140 | JSON Schema definition describing asset schema capabilities.
+| [86](https://docs.0xcert.org/framework/v2/schemas/86-base-asset-schema.html) | 9a7531dd7ac3ed4e3d2fa61d20a825cfd4be7f3e6bc540c82d9dc94b526c5123 | Basic asset data schema.
+| [87](https://docs.0xcert.org/framework/v2/schemas/87-asset-evidence-schema.html) | 02edbb4f2d07017d0ae9148af683a63d4b86d0d357a5019dd794d377a1523e9e | Asset evidence data schema.
+| [88](https://docs.0xcert.org/framework/v2/schemas/88-crypto-collectible-schema.html) | cd3d7fce94669724f964061572f42ae0391996b0e348c7431251f9ab1bab0f49 | Schema describing digital collectible item.
 
 **Example:**
 
