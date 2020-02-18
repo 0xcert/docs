@@ -62,7 +62,7 @@ A `string` representing asset imprint or `null` when metadata doesn't match.
 ```ts
 // arbitrary data
 const evidence = {
-  $schema: 'https://0xcert.org/conventions/87-asset-evidence-schema.json',
+  $schema: 'https://conventions.0xcert.org/87-asset-evidence.json',
   data: [...],
 };
 const metadata = {
@@ -245,7 +245,7 @@ Asset evidence represents a JSON object which holds information of the disclosed
 
 ```ts
 const evidence = {
-  $schema: 'https://0xcert.org/conventions/87-asset-evidence-schema.json',
+  $schema: 'https://conventions.0xcert.org/87-asset-evidence.json',
   data: [
     {
       path: [],
@@ -324,7 +324,7 @@ const metadata = {
   },
 };
 const evidence = {
-  '$schema': 'https://conventions.0xcert.org/87-asset-evidence-schema.json',
+  '$schema': 'https://conventions.0xcert.org/87-asset-evidence.json',
   'data': [],
 };
 ```
@@ -461,7 +461,7 @@ Let's see how this works in practice with a simple schema.
 
 ```ts
 const schema = {
-  '$schema': 'https://0xcert.org/conventions/xcert-schema.json',
+  '$schema': 'https://conventions.0xcert.org/xcert-schema.json',
   'properties': {
     '$schema': {
       'type': 'string',
@@ -491,7 +491,7 @@ The algorithm first sorts all the keys in alphabetic order.
 
 ```ts
 const schema = {
-  '$schema': 'https://0xcert.org/conventions/xcert-schema.json',
+  '$schema': 'https://conventions.0xcert.org/xcert-schema.json',
   'properties': {
     '$evidence': { ... },
     '$schema': { ... },

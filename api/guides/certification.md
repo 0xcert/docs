@@ -81,13 +81,13 @@ By adding metadata schema information, we enable automatic machine-level interpr
 
 Within the 0xcert Protocol, a digital asset employs a JSON Schema to describe asset context and data object structure. The asset schema allows for machine-level processing of asset information and thus makes each asset interoperable at the application layer.
 
-Asset schema is a specifically designed JSON object, which conforms to [RFC-7159](https://en.wikipedia.org/wiki/JSON) and follows the mapping format defined by the [JSON Schema](http://json-schema.org) specification. The 0xcert Protocol supports only a subset of JSON Schema specification, which is described by the [Xcert JSON Schema](https://0xcert.org/conventions/xcert-schema.json). You should always refer to this JSON Schema subset when writing asset schemas for your projects.
+Asset schema is a specifically designed JSON object, which conforms to [RFC-7159](https://en.wikipedia.org/wiki/JSON) and follows the mapping format defined by the [JSON Schema](http://json-schema.org) specification. The 0xcert Protocol supports only a subset of JSON Schema specification, which is described by the [Xcert JSON Schema](https://conventions.0xcert.org/xcert-schema.json). You should always refer to this JSON Schema subset when writing asset schemas for your projects.
 
 We incentivize the community to agree on standard schema conventions. Schema conventions should be proposed and included in the official 0xcert repository on GitHub. The 0xcert Framework already provides some basic schema conventions for you to use. For the purpose of this guide, we will define a minimal custom asset schema that describes the context and properties of the metadata created earlier. 
 
 ```json
 {
-  "$schema": "https://0xcert.org/conventions/xcert-schema.json",
+  "$schema": "https://conventions.0xcert.org/xcert-schema.json",
   "properties": {
     "$evidence": {
       "type": "string"

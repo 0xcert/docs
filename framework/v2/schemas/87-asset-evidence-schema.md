@@ -92,7 +92,7 @@ The 0xcert framework provides an algorithm for creating proofs from asset data o
 
 ```json
 {
-    "$schema": "https://0xcert.org/conventions/87-asset-evidence-schema.json",
+    "$schema": "https://conventions.0xcert.org/87-asset-evidence.json",
     "data": [
         {
             "path": [],
