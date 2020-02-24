@@ -74,7 +74,7 @@ const order = {
 Since we are transferring some value, we also have to approve the `Gateway` for transferring it. We do this by calling approveValue upon the `ValueLedger` instance of the ledger we are transferring tokens from. We also need to specify the amount of value we are approving for transfer.
 
 ::: tip
-If we approve a huge amount of value (max is 2^256-1), we only need to approve it once per ledger, otherwise we would run out of allowance.
+If we approve a huge amount of value (max is 2^256-1), we only need to approve it once per ledger, otherwise, we would run out of allowance.
 :::
 
 ```ts
@@ -151,4 +151,4 @@ const mutation = await gateway.perform(order, signature);
 await mutation.complete();
 ```
 
-If we did everything correctly, the atomic swap would perform successfully; otherwise, an error will be thrown, specifying what went wrong.
+If we did everything correctly, the atomic swap would perform successfully; Otherwise, an error will be thrown, specifying what went wrong.

@@ -2,7 +2,7 @@
 
 The main purpose of atomic approval is to delegate ETH execution to a third party enabling ETH-less transactions.
 
-So the difference between doing a normal `AssetLedger` approval is that in an atomic action you specify who you are approving (same as doing a normal approval), as well as the receiver of a value transaction (fee), and who can execute the order (can be set to a direct address or anyone). This enables approval in a fashion that the user defines set operator order and value transfer of some token, and anyone willing to execute the approval for the value fee can do it.
+The difference with doing a normal `AssetLedger` approval is that in an atomic action you specify: who you are approving (same as doing a normal approval), the receiver of a value transaction (fee), and the executor of the order (can be set to a direct address or anyone). This enables approval in a fashion that the user defines set operator order and value transfer of some token, and anyone, willing to execute the approval for the value fee, can do it.
 
 Atomic approval, like atomic order, is created through the `Gateway`, which, as its name suggests, is the gateway to the 0xcert protocol smart contract, deployed on the network and enabling atomic operations.
 
@@ -10,7 +10,7 @@ Let's check out an example for atomic approval.
 
 ## Prerequisites
 
-In this guide, we will assume you have gone through the [Value Management](/framework/v2/api/value-management.html) guide and have a `ValueLedger` deployed as well as a deployed `AssetLedger` though the [Asset Management](/framework/v2/api/asset-management.html) guide. You will also need two MetaMask accounts (create them through your MetaMask plug-in) with some ETH available.
+In this guide, we will assume you have gone through the [Value Management](/framework/v2/api/value-management.html) guide and have a `ValueLedger` deployed as well as a deployed `AssetLedger` through the [Asset Management](/framework/v2/api/asset-management.html) guide. You will also need two MetaMask accounts (create them through your MetaMask plug-in) with some ETH available.
 
 ## Installation
 
@@ -20,7 +20,7 @@ We recommend you employ the package as an NPM package in your application.
 $ npm i --save @0xcert/ethereum-gateway
 ```
 
-In our official [GitHub repository](https://github.com/0xcert/framework), we also host a compiled and minimized JavaScript file that can be directly implemented in your website. Please refer to the [API](/api/core.html) section to learn more about gateway.
+In our official [GitHub repository](https://github.com/0xcert/framework), we also host a compiled and minimized JavaScript file that can be directly implemented in your website. Please refer to the [API](/api/core.html) section to learn more about the gateway.
 
 ## Initialization
 
@@ -44,7 +44,7 @@ const gateway = Gateway.getInstance(provider, buildGatewayConfig(NetworkKind.ROP
 Click [here](https://codesandbox.io/s/github/0xcert/example-asset-set-operator-order?module=%2FREADME.md) to check the live example for the asset set operator order.
 :::
 
-In an asset set operator order we are always the ones that are the owner of the asset and are allowing someone else to be an operator. We are the only participant in this order since the operator usually is not another person but a smart contract. Main purpose is that we don't need to perform this operation ourself but someone else will do it for us in exchange for value transfer.
+In an asset set operator order we are always the ones that are the owner of the asset and are allowing someone else to be an operator. We are the only participant in this order since the operator usually is not another person but a smart contract. The main purpose is that we don't need to perform this operation ourselves but someone else will do it for us in exchange for value transfer.
 
 ```ts
 const order = {

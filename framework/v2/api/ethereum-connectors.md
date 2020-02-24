@@ -3178,13 +3178,13 @@ Order kinds that fit into this group are:
 - `DeployAssetLedgerOrder`
 - `DeployValueLedgerOrder`
 
-Then we have `AssetSetOperatorOrder` of which primary function is similar the same as deploy oder which is to delegate the execution to someone else in exchange for tokens. Enabling meta transaction (no eth operation). The flow for this order is:
+Then we have `AssetSetOperatorOrder` of which primary function is similar as deploy order which is to delegate the execution to someone else in exchange for tokens. Enabling meta transaction (no eth operation). The flow for this order is:
 
 1. The address (`owner`) that wants to set an operator is the one that creates the order.
 2. Owner generates the order claim and signs it (`sign` function).
 3. Owner approves value transfer if necessary.
 4. Owner sends the order and signature to the executor (through arbitrary ways).
-5. Executor performs the order. Executor can be predefined or anyone depending on order.
+5. Executor performs the order. Executor can be predefined or anyone depending on the order.
 
 Then, there are orders for performing actions on existing ledgers. These orders are really powerful, but this makes them more complicated, too.
 Unlike deploy orders that have a specific maker and taker, the actions order are more dynamic, allowing an X number of participants to join but who need to sign an order for it to be valid.
