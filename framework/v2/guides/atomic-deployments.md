@@ -41,7 +41,7 @@ const gateway = Gateway.getInstance(provider, buildGatewayConfig(NetworkKind.ROP
 ## Asset ledger deploy order
 
 ::: card Live example
-Click [here](https://codesandbox.io/s/github/0xcert/example-asset-ledger-deploy-order?module=%2FREADME.md) to check the live example for the fixed actions order.
+Click [here](https://codesandbox.io/s/github/0xcert/example-asset-ledger-deploy-order?module=%2FREADME.md) to check the live example for the asset ledger deploy order.
 :::
 
 We always have two participants in a deploy order. The first is the maker of the order, the one who defines what will happen. The second one is the taker, who can either be directly specified or left empty to be filled by anyone who can execute the order. Our example will take the second option. So let's jump right in and define a deploy order.
@@ -101,7 +101,7 @@ If we did everything correctly, the atomic swap would perform successfully; othe
 ## Value ledger deploy order
 
 ::: card Live example
-Click [here](https://codesandbox.io/s/github/0xcert/example-value-ledger-deploy-order?module=%2FREADME.md) to check the live example for the fixed actions order.
+Click [here](https://codesandbox.io/s/github/0xcert/example-value-ledger-deploy-order?module=%2FREADME.md) to check the live example for the value ledger deploy order.
 :::
 
 We always have two participants in a deploy order. The first is the maker of the order, the one who defines what will happen. The second one is the taker, who can either be directly specified or left empty to be filled by anyone who can execute the order. Our example will take the second option. So let's jump right in and define a deploy order.
