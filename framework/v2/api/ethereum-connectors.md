@@ -3160,7 +3160,7 @@ const mutation = await ledger.transferValue(recipe);
 ## Gateway
 
 The Gateway allows for performing multiple actions in a single atomic swap. The gateway always operates with an order.
-There are different kinds of order, depending on the type of action you want to perform. We can separate orders into two groups
+There are different kinds of order, depending on the type of action you want to perform. We can separate orders into three groups
 based on their functionality and their flow. First, there are orders for deploying a new `ValueLedger` and `AssetLedger`. 
 These two orders only perform the deployment of a new smart contract to the blockchain plus a transfer of ERC-20 tokens (value). 
 They are primarily targeted to delegating a deployment to a third party. For example, if you want to deploy a new `AssetLedger`
@@ -3176,7 +3176,15 @@ In this case, the taker can also be defined as "anyone", meaning you can define 
 
 Order kinds that fit into this group are:
 - `DeployAssetLedgerOrder`
-- `DeployValueLedgerOrder` 
+- `DeployValueLedgerOrder`
+
+Then we have `AssetSetOperatorOrder` of which primary function is similar as deploy order which is to delegate the execution to someone else in exchange for tokens. Enabling meta transaction (no eth operation). The flow for this order is:
+
+1. The address (`owner`) that wants to set an operator is the one that creates the order.
+2. Owner generates the order claim and signs it (`sign` function).
+3. Owner approves value transfer if necessary.
+4. Owner sends the order and signature to the executor (through arbitrary ways).
+5. Executor performs the order. Executor can be predefined or anyone depending on the order.
 
 Then, there are orders for performing actions on existing ledgers. These orders are really powerful, but this makes them more complicated, too.
 Unlike deploy orders that have a specific maker and taker, the actions order are more dynamic, allowing an X number of participants to join but who need to sign an order for it to be valid.
@@ -3477,6 +3485,23 @@ This order kind is used for delegating `AssetLedger` deploy.
 | makerId | [required] A `string` representing an Ethereum account address which makes the order. It defaults to the `accountId` of a provider.
 | seed | [required] An `integer` number representing a unique order number.
 | takerId | A `string` representing the Ethereum account address which will be able to perform the order on the blockchain. This account also pays the gas cost.
+| tokenTransferData.ledgerId | [required] A `string` representing asset ledger address.
+| tokenTransferData.receiverId | A `string` representing the receiver's address.
+| tokenTransferData.value | [required] A big number `string` representing the transferred amount.
+
+### Asset set operator order
+
+This order kind is used for delegating `SetOperator` order.
+
+| Argument | Description
+|-|-
+| expiration | [required] An `integer` number representing the timestamp in milliseconds after which the order expires and can not be performed anymore.
+| isOperator | [required] A `boolean` representing if we are granting or revoking operator permission of an account.
+| kind | [required] An `integer` number that equals to `OrderKind.ASSET_SET_OPERATOR_ORDER`.
+| ledgerId | [required] A `string` representing an asset ledger id on which we are setting the operator.
+| owner | [required] A `string` representing an Ethereum account address which is the asset owner granting operator permission.
+| operator | [required] A `string` representing an Ethereum account address which will get operator permission grated or revoked.
+| seed | [required] An `integer` number representing a unique order number.
 | tokenTransferData.ledgerId | [required] A `string` representing asset ledger address.
 | tokenTransferData.receiverId | A `string` representing the receiver's address.
 | tokenTransferData.value | [required] A big number `string` representing the transferred amount.
@@ -3828,6 +3853,8 @@ This is a list of all possible errors that can be thrown by the 0xcert Framework
 | 007006 | Provided signature kind is invalid.
 | 007007 | This order was already performed.
 | 007008 | This order has expired.
+| 007009 | This order was canceled.
+| 007010 | You are not the account specified as the `owner`.
 | 008001 | This action caused a math error: overflow.
 | 008002 | This action caused a math error: subtrahend is greater than minuend.
 | 008003 | This action caused a math error: division by zero.
