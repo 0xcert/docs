@@ -10,7 +10,7 @@ Let's check out an example of both atomic deployments.
 
 ## Prerequisites
 
-In this guide, we will assume you have gone through the [Value Management]() guide and have a `ValueLedger` deployed. You will also need two MetaMask accounts (create them through your MetaMask plug-in) with some ETH available.
+In this guide, we will assume you have gone through the [Value Management](/framework/v2/api/value-management.html) guide and have a `ValueLedger` deployed. You will also need two MetaMask accounts (create them through your MetaMask plug-in) with some ETH available.
 
 ## Installation
 
