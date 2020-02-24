@@ -90,6 +90,7 @@ module.exports = {
             'guides/value-management',
             'guides/atomic-deployments',
             'guides/atomic-actions',
+            'guides/atomic-approval',
           ],
         },
         {
