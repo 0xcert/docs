@@ -1932,8 +1932,9 @@ const mutation = await ledger.transferValue(recipe);
 
 ## Gateway
 
+
 The Gateway allows for performing multiple actions in a single atomic swap. The gateway always operates with an order.
-There are different kinds of order, depending on the type of action you want to perform. We can separate orders into two groups
+There are different kinds of order, depending on the type of action you want to perform. We can separate orders into three groups
 based on their functionality and their flow. First, there are orders for deploying a new `ValueLedger` and `AssetLedger`. 
 These two orders only perform the deployment of a new smart contract to the blockchain plus a transfer of ERC-20 tokens (value). 
 They are primarily targeted to delegating a deployment to a third party. For example, if you want to deploy a new `AssetLedger`
@@ -1949,7 +1950,15 @@ In this case, the taker can also be defined as "anyone", meaning you can define 
 
 Order kinds that fit into this group are:
 - `DeployAssetLedgerOrder`
-- `DeployValueLedgerOrder` 
+- `DeployValueLedgerOrder`
+
+Then we have `AssetSetOperatorOrder` of which primary function is similar as deploy order which is to delegate the execution to someone else in exchange for tokens. Enabling meta transaction (no eth operation). The flow for this order is:
+
+1. The address (`owner`) that wants to set an operator is the one that creates the order.
+2. Owner generates the order claim and signs it (`sign` function).
+3. Owner approves value transfer if necessary.
+4. Owner sends the order and signature to the executor (through arbitrary ways).
+5. Executor performs the order. Executor can be predefined or anyone depending on the order.
 
 Then, there are orders for performing actions on existing ledgers. These orders are really powerful, but this makes them more complicated, too.
 Unlike deploy orders that have a specific maker and taker, the actions order are more dynamic, allowing an X number of participants to join but who need to sign an order for it to be valid.
@@ -1962,12 +1971,12 @@ That also means that we can have multiple participants performing actions in a s
 - Update account abilities
 
 Since we have multiple participants in an order, there are four different ways to interact with it, resulting in four `ActionsOrder`s differentiating only in the way participants interact with it, namely:
-- `FixedActionsOrder` - All participants are known and set in the order. Only the last defined participant can peform the order, other participants have to provide signatures.
+- `FixedActionsOrder` - All participants are known and set in the order. Only the last defined participant can perform the order, other participants have to provide signatures.
 - `SignedFixedActionsOrder` - All participants are known and set in the order. All participants have to provide signatures. Any participant can perform the order.
 - `DynamicActionsOrder` - The last participant can be unknown or "any". All defined participants have to provide signatures. Any participant can peform the order and automatically becomes the last participant.
 - `SignedDynamicActionsOrder` - The last participant can be unknown or "any". All defined participants have to provide signatures, the last or "any" participant, as well. Any participant can perform the order.
 
-Let's illustrate the above concepts through an example. Let's say we want to sell two CryptoKitties for 5.000 ZXC. To allow anyone to buy it, we would use a `DynamicActionsOrder`, since we do not need to set the `receiverId` of the CryptoKitties and neither the `senderId` of ZXC. This means that anyone that wants to perform the order will automatically become the empty recipient/sender with whom we will exchange the assets. If we use the same case, but this time, we want to sell our CryptoKitties to Bob for 5.000 ZXC, we will use `FixedActionsOrder`, so that we can specify the exact receiver. Now, let's say that Bob does not have any WAN and is unable to perform the order, but he has tons of ZXC tokens, and his friend Sara is willing to help him out. In this case, we can use a `SignedFixedActionsOrder`, so that Bob only needs to sign the order, and Sara can perform it. If he wanted to pay Sara some ZXC for doing this, he could specify this in the order.
+Let's illustrate the above concepts through an example. Let's say we want to sell two CryptoKitties for 5.000 ZXC. To allow anyone to buy it, we would use a `DynamicActionsOrder`, since we do not need to set the `receiverId` of the CryptoKitties and neither the `senderId` of ZXC. This means that anyone that wants to perform the order will automatically become the empty recipient/sender with whom we will exchange the assets. If we use the same case, but this time, we want to sell our CryptoKitties to Bob for 5.000 ZXC, we will use `FixedActionsOrder`, so that we can specify the exact receiver. Now, let's say that Bob does not have any ETH and is unable to perform the order, but he has tons of ZXC tokens, and his friend Sara is willing to help him out. In this case, we can use a `SignedFixedActionsOrder`, so that Bob only needs to sign the order, and Sara can perform it. If he wanted to pay Sara some ZXC for doing this, he could specify this in the order.
 
 Therefore, `signed` orders are perfect for third-party services providing order execution for someone else. This can come handy in a variety of dApps.
 
@@ -2232,7 +2241,7 @@ const signature = await gateway.sign(order);
 
 Orders define what an atomic swap will do. There are three different order kinds with different use cases and definitions.
 
-### Asset ledger deploy order
+### AssetLedgerDeployOrder
 
 This order kind is used for delegating `AssetLedger` deploy.
 
@@ -2250,6 +2259,23 @@ This order kind is used for delegating `AssetLedger` deploy.
 | makerId | [required] A `string` representing a Wanchain account address which makes the order. It defaults to the `accountId` of a provider.
 | seed | [required] An `integer` number representing a unique order number.
 | takerId | A `string` representing the Wanchain account address which will be able to perform the order on the blockchain. This account also pays the gas cost.
+| tokenTransferData.ledgerId | [required] A `string` representing asset ledger address.
+| tokenTransferData.receiverId | A `string` representing the receiver's address.
+| tokenTransferData.value | [required] A big number `string` representing the transferred amount.
+
+### AssetSetOperatorOrder
+
+This order kind is used for delegating `SetOperator` order.
+
+| Argument | Description
+|-|-
+| expiration | [required] An `integer` number representing the timestamp in milliseconds after which the order expires and can not be performed anymore.
+| isOperator | [required] A `boolean` representing if we are granting or revoking operator permission of an account.
+| kind | [required] An `integer` number that equals to `OrderKind.ASSET_SET_OPERATOR_ORDER`.
+| ledgerId | [required] A `string` representing an asset ledger id on which we are setting the operator.
+| owner | [required] A `string` representing an Ethereum account address which is the asset owner granting operator permission.
+| operator | [required] A `string` representing an Ethereum account address which will get operator permission grated or revoked.
+| seed | [required] An `integer` number representing a unique order number.
 | tokenTransferData.ledgerId | [required] A `string` representing asset ledger address.
 | tokenTransferData.receiverId | A `string` representing the receiver's address.
 | tokenTransferData.value | [required] A big number `string` representing the transferred amount.
