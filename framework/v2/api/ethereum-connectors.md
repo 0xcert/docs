@@ -3467,7 +3467,7 @@ const signature = await gateway.sign(order);
 
 The order defines what an atomic swap will do. There are three different order kinds with different use cases and definitions.
 
-### Asset ledger deploy order
+### AssetLedgerDeployOrder
 
 This order kind is used for delegating `AssetLedger` deploy.
 
@@ -3489,7 +3489,7 @@ This order kind is used for delegating `AssetLedger` deploy.
 | tokenTransferData.receiverId | A `string` representing the receiver's address.
 | tokenTransferData.value | [required] A big number `string` representing the transferred amount.
 
-### Asset set operator order
+### AssetSetOperatorOrder
 
 This order kind is used for delegating `SetOperator` order.
 
