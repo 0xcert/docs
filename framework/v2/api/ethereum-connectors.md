@@ -3727,56 +3727,56 @@ These are the latest addresses that work with the 0xcert Framework version 2.0.0
 
 ### Mainnet
 
-Coming soon...
-
 | Contract | Address
 |-|-
-| AbilitableManageProxy | []()
-| ActionsGateway | []()
-| NFTokenTransferProxy | []()
-| NFTokenSafeTransferProxy | []()
-| TokenDeployGateway | []()
-| TokenDeployProxy | []()
-| TokenTransferProxy | []()
-| XcertCreateProxy | []()
-| XcertDeployGateway | []()
-| XcertDeployProxy | []()
-| XcertDestroyProxy | []()
-| XcertUpdateProxy | []()
+| AbilitableManageProxy | [0x6Ad81cC888270eA2258aDAFe270100EebeC12449](https://etherscan.io/address/0x6Ad81cC888270eA2258aDAFe270100EebeC12449)
+| ActionsGateway | [0x800ecA21614dA02Df076981Bca9c664dBE19089A](https://etherscan.io/address/0x800ecA21614dA02Df076981Bca9c664dBE19089A)
+| NFTokenTransferProxy | [0xF40B8c673178d37EaA70B3E48eAe8eEbA9A23645](https://etherscan.io/address/0xF40B8c673178d37EaA70B3E48eAe8eEbA9A23645)
+| NFTokenSafeTransferProxy | [0x5522C775ae13A2763B0B1711633De3E1bF37848f](https://etherscan.io/address/0x5522C775ae13A2763B0B1711633De3E1bF37848f)
+| TokenDeployGateway | [0x9118bd4230EAb074f98527658f3649aA26420568](https://etherscan.io/address/0x9118bd4230EAb074f98527658f3649aA26420568)
+| TokenDeployProxy | [0xC9D0F2134a5381a370cd06E593747035b184e3c0](https://etherscan.io/address/0xC9D0F2134a5381a370cd06E593747035b184e3c0)
+| TokenTransferProxy | [0x7Bc5790Fd0C23F45f29f893DF2De8965A3e51F15](https://etherscan.io/address/0x7Bc5790Fd0C23F45f29f893DF2De8965A3e51F15)
+| XcertCreateProxy | [0x6eEfae076AA3A4f83cECDE690672d5735F169Ace](https://etherscan.io/address/0x6eEfae076AA3A4f83cECDE690672d5735F169Ace)
+| XcertDeployGateway | [0x984e781a6C09b433493767755f7b072183Ce7BfF](https://etherscan.io/address/0x984e781a6C09b433493767755f7b072183Ce7BfF)
+| XcertDeployProxy | [0x14Cb2fdab641AF08BdD1EF4edc4Eefa4C751DD83](https://etherscan.io/address/0x14Cb2fdab641AF08BdD1EF4edc4Eefa4C751DD83)
+| XcertDestroyProxy | [0x744E60db927F62bd9853FbbA61029f770C179E56](https://etherscan.io/address/0x744E60db927F62bd9853FbbA61029f770C179E56)
+| XcertUpdateProxy | [0x2c3ba3407AA5650aBA7101e20BD99bC5f9b0e4D0](https://etherscan.io/address/0x2c3ba3407AA5650aBA7101e20BD99bC5f9b0e4D0)
+| ZXC Token | [0x83e2be8d114f9661221384b3a50d24b96a5653f5](https://etherscan.io/address/0x83e2be8d114f9661221384b3a50d24b96a5653f5)
+| ZXC Burner | [0x033BBe355FF37e57F93Ca06c3CA20BCd0e95ab04](https://etherscan.io/address/0x033BBe355FF37e57F93Ca06c3CA20BCd0e95ab04)
 
 ### Ropsten
 
 | Contract | Address
 |-|-
-| AbilitableManageProxy | [0xB20C9E6d8FD5030496A3A4B23DBA9B829b9162Cd](https://ropsten.etherscan.io/address/0xB20C9E6d8FD5030496A3A4B23DBA9B829b9162Cd)
-| ActionsGateway | [0x265A62A3EfB677ca6A0F7C85dC5002EC71F2cde6](https://ropsten.etherscan.io/address/0x265A62A3EfB677ca6A0F7C85dC5002EC71F2cde6)
-| NFTokenTransferProxy | [0xC99C68dEB93BDcA009F4e8d0Ffe0eB1559CEd394](https://ropsten.etherscan.io/address/0xC99C68dEB93BDcA009F4e8d0Ffe0eB1559CEd394)
-| NFTokenSafeTransferProxy | [0xddF2A8e23DEC02d56e904610c01eb4ccB617b4fb](https://ropsten.etherscan.io/address/0xddF2A8e23DEC02d56e904610c01eb4ccB617b4fb)
-| TokenDeployGateway | [0xd3bf7FF070a58A580D7ef82DF130DC0B06b567D8](https://ropsten.etherscan.io/address/0xd3bf7FF070a58A580D7ef82DF130DC0B06b567D8)
-| TokenDeployProxy | [0x34241B71c6a714730181B07927617692C6d72270](https://ropsten.etherscan.io/address/0x34241B71c6a714730181B07927617692C6d72270)
-| TokenTransferProxy | [0x7757b6464C3Ed7997Bb90306DeC99c7F6EAb4c80](https://ropsten.etherscan.io/address/0x7757b6464C3Ed7997Bb90306DeC99c7F6EAb4c80)
-| XcertCreateProxy | [0x65cFd11639B1cDEfcd6472701f6520c048e669A1](https://ropsten.etherscan.io/address/0x65cFd11639B1cDEfcd6472701f6520c048e669A1)
-| XcertDeployGateway | [0x2ED6fA578A0331Bcd598Ac0c43D26fe896b967c9](https://ropsten.etherscan.io/address/0x2ED6fA578A0331Bcd598Ac0c43D26fe896b967c9)
-| XcertDeployProxy | [0x776755729E3cab8E0A93F08d3465028154001284](https://ropsten.etherscan.io/address/0x776755729E3cab8E0A93F08d3465028154001284)
-| XcertDestroyProxy | [0x47cb8D2902F163711DD3d68Da3509996524BE2A1](https://ropsten.etherscan.io/address/0x47cb8D2902F163711DD3d68Da3509996524BE2A1)
-| XcertUpdateProxy | [0x0226329dF8b9F2F08957152aD0B26E02B1a7b87c](https://ropsten.etherscan.io/address/0x0226329dF8b9F2F08957152aD0B26E02B1a7b87c)
+| AbilitableManageProxy | [0x2805807BeBc0208411DA2404061E33e1037831E1](https://ropsten.etherscan.io/address/0x2805807BeBc0208411DA2404061E33e1037831E1)
+| ActionsGateway | [0xbb719e35c67198e4453923eeccF0c678C6129982](https://ropsten.etherscan.io/address/0xbb719e35c67198e4453923eeccF0c678C6129982)
+| NFTokenTransferProxy | [0xc66C7dfD9bC345888f25DC6725F985B105789027](https://ropsten.etherscan.io/address/0xc66C7dfD9bC345888f25DC6725F985B105789027)
+| NFTokenSafeTransferProxy | [0x4e306D1deACf82C4583499bEE8772cc24be40c80](https://ropsten.etherscan.io/address/0x4e306D1deACf82C4583499bEE8772cc24be40c80)
+| TokenDeployGateway | [0xD348c4D9BE9585295891E0322FeFe58009c1514C](https://ropsten.etherscan.io/address/0xD348c4D9BE9585295891E0322FeFe58009c1514C)
+| TokenDeployProxy | [0x3b359d27fF788Fcab34E2995bf5766d8E4860Be3](https://ropsten.etherscan.io/address/0x3b359d27fF788Fcab34E2995bf5766d8E4860Be3)
+| TokenTransferProxy | [0x4E7a230CdEB9Cd2cA4595139a89A58aCc805909e](https://ropsten.etherscan.io/address/0x4E7a230CdEB9Cd2cA4595139a89A58aCc805909e)
+| XcertCreateProxy | [0x2cc162f3d489449E9096FA18bB2ca466DaD93a72](https://ropsten.etherscan.io/address/0x2cc162f3d489449E9096FA18bB2ca466DaD93a72)
+| XcertDeployGateway | [0xC94284591B312c5551329F868420dec03C9044f8](https://ropsten.etherscan.io/address/0xC94284591B312c5551329F868420dec03C9044f8)
+| XcertDeployProxy | [0x8139878600CE1C19e79c7d641277213Eb8127093](https://ropsten.etherscan.io/address/0x8139878600CE1C19e79c7d641277213Eb8127093)
+| XcertDestroyProxy | [0x5fE02838e2c19E84F7524ce99169e206972a12C3](https://ropsten.etherscan.io/address/0x5fE02838e2c19E84F7524ce99169e206972a12C3)
+| XcertUpdateProxy | [0x39ddaF49719506eb07071491e61332172DB5561E](https://ropsten.etherscan.io/address/0x39ddaF49719506eb07071491e61332172DB5561E)
 
 ### Rinkeby
 
 | Contract | Address
 |-|-
-| AbilitableManageProxy | [0xf3fbFd8951A27CAA525a41B09A185B60423240Cc](https://rinkeby.etherscan.io/address/0xf3fbFd8951A27CAA525a41B09A185B60423240Cc)
-| ActionsGateway | [0x2e697eAcdCEc69A9695fb4908a35D04C80aB7E49](https://rinkeby.etherscan.io/address/0x2e697eAcdCEc69A9695fb4908a35D04C80aB7E49)
-| NFTokenTransferProxy | [0x7da2DE6CF92821EDC84078e117c2CCae3927c2E5](https://rinkeby.etherscan.io/address/0x7da2DE6CF92821EDC84078e117c2CCae3927c2E5)
-| NFTokenSafeTransferProxy | [0x7da2DE6CF92821EDC84078e117c2CCae3927c2E5](https://rinkeby.etherscan.io/address/0x7da2DE6CF92821EDC84078e117c2CCae3927c2E5)
-| TokenDeployGateway | [0xa5ff982d4b054F777DC3eFe77b5D91236A389800](https://rinkeby.etherscan.io/address/0xa5ff982d4b054F777DC3eFe77b5D91236A389800)
-| TokenDeployProxy | [0x107987e80D14A1D57ECf9bddb062540214f42cd2](https://rinkeby.etherscan.io/address/0x107987e80D14A1D57ECf9bddb062540214f42cd2)
-| TokenTransferProxy | [0x1028120053061420cD88dd5C359a4215A220a55A](https://rinkeby.etherscan.io/address/0x1028120053061420cD88dd5C359a4215A220a55A)
-| XcertCreateProxy | [0x7A0787303aC4d4EA9555889193b3162590174e53](https://rinkeby.etherscan.io/address/0x7A0787303aC4d4EA9555889193b3162590174e53)
-| XcertDeployGateway | [0xBdd421cfD425BC952d704c2C68D902672FF7738D](https://rinkeby.etherscan.io/address/0xBdd421cfD425BC952d704c2C68D902672FF7738D)
-| XcertDeployProxy | [0x68e01C55A13AfEC8D3F2F54e3C6c16dbB52A320b](https://rinkeby.etherscan.io/address/0x68e01C55A13AfEC8D3F2F54e3C6c16dbB52A320b)
-| XcertDestroyProxy | [0x281fe2B7557F6fC1B124977B8758afa2deC314dC](https://rinkeby.etherscan.io/address/0x281fe2B7557F6fC1B124977B8758afa2deC314dC)
-| XcertUpdateProxy | [0x9790F46776F73f96bb996EBC813aeA36aA874D8a](https://rinkeby.etherscan.io/address/0x9790F46776F73f96bb996EBC813aeA36aA874D8a)
+| AbilitableManageProxy | [0xEb29aA9B8e0E9609056439200F78E9b1458d1504](https://rinkeby.etherscan.io/address/0xEb29aA9B8e0E9609056439200F78E9b1458d1504)
+| ActionsGateway | [0xF8254F1B119Cd263b066912B3Cb4FE568f580b6c](https://rinkeby.etherscan.io/address/0xF8254F1B119Cd263b066912B3Cb4FE568f580b6c)
+| NFTokenTransferProxy | [0xDdff4b3215F7Fb4569aD91B68C53278F6a57b6DB](https://rinkeby.etherscan.io/address/0xDdff4b3215F7Fb4569aD91B68C53278F6a57b6DB)
+| NFTokenSafeTransferProxy | [0x67Fee0cDE09d227d45082cB3BCe5BeC83f4f674D](https://rinkeby.etherscan.io/address/0x67Fee0cDE09d227d45082cB3BCe5BeC83f4f674D)
+| TokenDeployGateway | [0xA02121436e9307f9e369e188941b731D79c4DD7d](https://rinkeby.etherscan.io/address/0xA02121436e9307f9e369e188941b731D79c4DD7d)
+| TokenDeployProxy | [0x342736C089556Cf4B3d0eDD629b67a70bCC39b07](https://rinkeby.etherscan.io/address/0x342736C089556Cf4B3d0eDD629b67a70bCC39b07)
+| TokenTransferProxy | [0x1dA2e8BAb687bebEC7D88D522C7C811d053382Ed](https://rinkeby.etherscan.io/address/0x1dA2e8BAb687bebEC7D88D522C7C811d053382Ed)
+| XcertCreateProxy | [0x40852293394cd918AbDE20097678f6D7C5AD32e9](https://rinkeby.etherscan.io/address/0x40852293394cd918AbDE20097678f6D7C5AD32e9)
+| XcertDeployGateway | [0xC9F667603300390BCF8C4Fb5688d755811F34Da5](https://rinkeby.etherscan.io/address/0xC9F667603300390BCF8C4Fb5688d755811F34Da5)
+| XcertDeployProxy | [0x6363444242db6627d81c9487987EEB578049Ff67](https://rinkeby.etherscan.io/address/0x6363444242db6627d81c9487987EEB578049Ff67)
+| XcertDestroyProxy | [0xB92DBeFA1dDBbBfa383d94199f30d91c9e503c32](https://rinkeby.etherscan.io/address/0xB92DBeFA1dDBbBfa383d94199f30d91c9e503c32)
+| XcertUpdateProxy | [0xC97A150E797F4D8be5AB23D08605bf00919Be392](https://rinkeby.etherscan.io/address/0xC97A150E797F4D8be5AB23D08605bf00919Be392)
 
 ## Possible errors
 
