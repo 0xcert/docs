@@ -19,7 +19,7 @@ Before we can start transferring assets we must initialize our client first.
 ```ts
 const client = new Client({
   provider,
-  apiUrl: 'https://api-staging.0xcert.org',
+  apiUrl: 'https://api-rinkeby.0xcert.org',
 });
 await client.init();
 ```
