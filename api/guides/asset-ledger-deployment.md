@@ -23,7 +23,7 @@ Before we can start with asset ledger deployment we must initialize our client f
 ```ts
 const client = new Client({
   provider,
-  apiUrl: 'https://api-staging.0xcert.org',
+  apiUrl: 'https://api-rinkeby.0xcert.org',
 });
 await client.init();
 ```

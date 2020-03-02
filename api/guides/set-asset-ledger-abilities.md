@@ -29,7 +29,7 @@ Before we can start setting asset ledger abilities we must initialize our client
 ```ts
 const client = new Client({
   provider,
-  apiUrl: 'https://api-staging.0xcert.org',
+  apiUrl: 'https://api-rinkeby.0xcert.org',
 });
 await client.init();
 ```
