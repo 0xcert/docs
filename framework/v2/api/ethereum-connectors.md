@@ -3178,7 +3178,7 @@ Order kinds that fit into this group are:
 - `DeployAssetLedgerOrder`
 - `DeployValueLedgerOrder`
 
-Then we have `AssetSetOperatorOrder` of which primary function is similar as deploy order which is to delegate the execution to someone else in exchange for tokens. Enabling meta transaction (no eth operation). The flow for this order is:
+Then we have `AssetSetOperatorOrder` and `DappValueApproveOrder` of which primary function is similar as deploy order which is to delegate the execution to someone else in exchange for tokens. Enabling meta transaction (no eth operation). The flow for this order is:
 
 1. The address (`owner`) that wants to set an operator is the one that creates the order.
 2. Owner generates the order claim and signs it (`sign` function).
@@ -3518,6 +3518,22 @@ All participants (signers) except for the last one are defined. This means that 
 | kind | [required] An `integer` number that equals to `OrderKind.DYNAMIC_ACTIONS_ORDER`.
 | seed | [required] An `integer` number representing a unique order number.
 | signers | [required] A `string[]` representing order signers.
+
+### DappValueApproveOrder
+
+This order kind is used for delegating `Value approve` order.
+
+| Argument | Description
+|-|-
+| approver | [required] A `string` representing an Ethereum account address which is the one approving a third party.
+| expiration | [required] An `integer` number representing the timestamp in milliseconds after which the order expires and can not be performed anymore.
+| feeRecipient | An Ethereum account address which will receive the fee value for executing this transaction. If not defined anyone executing the transaction will get the fee.
+| feeValue | [required] A big number `string` representing the amount of tokens `feeRecipient` will get.
+| kind | [required] An `integer` number that equals to `OrderKind.DAPP_VALUE_APPROVE_ORDER`.
+| ledgerId | [required] A `string` representing dapp token address.
+| seed | [required] An `integer` number representing a unique order number.
+| value | [required] A big number `string` representing the amount for which the `approver` is approving the `spender`.
+| spender | [required] A `string` representing an Ethereum account address which will be allowed to spend the set `value` amount in `approver`s name.
 
 ### FixedActionsOrder
 
