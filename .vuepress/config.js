@@ -51,6 +51,7 @@ module.exports = {
             'guides/destroy-asset',
             'guides/set-asset-ledger-abilities',
             'guides/transfer-value',
+            'guides/approve-asset-transfer',
             'guides/additional-scenarios',
           ],
         },
