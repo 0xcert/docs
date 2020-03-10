@@ -1042,3 +1042,29 @@ Most of the API routes restrict public access and require authentication. Authen
 |-|-
 | 1 | Sort by date of creation in ascending order.
 | 2 | Sort by date of creation in descending order.
+
+### Badge
+
+#### GET /badge
+
+> Gets badge showing if asset is valid or not.
+
+##### Query parameters
+
+| Name | Description
+|-|-
+| assetId | [required] A `string` representing the asset id.
+| ledgerId | [required] A `string` representing `assetLedgerId` for which we are checking asset validity.
+| validImg | A `string` representing the URI of an image that will be returned if asset is valid. Defaults to `https://verify.0xcert.org/images/trusted.svg`. 
+| invalidImg | A `string` representing the URI of an image that will be returned if asset is invalid. Defaults to `https://verify.0xcert.org/images/untrusted.svg`. 
+
+##### Possible errors
+
+| Code | Description
+|-|-
+| 400016 | Asset not found or does not have a URI set.
+| 400017 | Error fetching necessary data from asset URI.
+| 400019 | Error fetching badge image.
+| 422116 | Badge validation failed because badges `assetId` is not present.
+| 422117 | Badge validation failed because `ledgerId` is not valid eth address.
+| 422118 | Badge validation failed because badges `ledgerId` is not present.
