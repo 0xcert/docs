@@ -3743,6 +3743,7 @@ These are the latest addresses that work with the 0xcert Framework version 2.0.0
 | XcertUpdateProxy | [0x2c3ba3407AA5650aBA7101e20BD99bC5f9b0e4D0](https://etherscan.io/address/0x2c3ba3407AA5650aBA7101e20BD99bC5f9b0e4D0)
 | ZXC Token | [0x83e2be8d114f9661221384b3a50d24b96a5653f5](https://etherscan.io/address/0x83e2be8d114f9661221384b3a50d24b96a5653f5)
 | ZXC Burner | [0x033BBe355FF37e57F93Ca06c3CA20BCd0e95ab04](https://etherscan.io/address/0x033BBe355FF37e57F93Ca06c3CA20BCd0e95ab04)
+| DZXC Token (0xcert services) | [0x4926865d7773504264f0c234851D159067ec7f12](https://etherscan.io/address/0x4926865d7773504264f0c234851D159067ec7f12)
 
 ### Ropsten
 
