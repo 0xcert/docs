@@ -234,6 +234,7 @@ Most of the API routes restrict public access and require authentication. Authen
 | 422024 | Asset validation failed because `imprint` is not present.
 | 422036 | Asset validation failed because `ledgerId` is not present.
 | 422013 | Asset validation failed because `id` is not unique on selected ledger.
+| 422158 | Order action validation failed because `assetImprint` is not valid.
 
 #### [private] PUT /orders/:orderRef/perform
 
