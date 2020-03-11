@@ -3178,7 +3178,7 @@ Order kinds that fit into this group are:
 - `DeployAssetLedgerOrder`
 - `DeployValueLedgerOrder`
 
-Then we have `AssetSetOperatorOrder` of which primary function is similar as deploy order which is to delegate the execution to someone else in exchange for tokens. Enabling meta transaction (no eth operation). The flow for this order is:
+Then we have `AssetSetOperatorOrder` and `DappValueApproveOrder` of which primary function is similar as deploy order which is to delegate the execution to someone else in exchange for tokens. Enabling meta transaction (no eth operation). The flow for this order is:
 
 1. The address (`owner`) that wants to set an operator is the one that creates the order.
 2. Owner generates the order claim and signs it (`sign` function).
@@ -3519,6 +3519,22 @@ All participants (signers) except for the last one are defined. This means that 
 | seed | [required] An `integer` number representing a unique order number.
 | signers | [required] A `string[]` representing order signers.
 
+### DappValueApproveOrder
+
+This order kind is used for delegating `Value approve` order.
+
+| Argument | Description
+|-|-
+| approver | [required] A `string` representing an Ethereum account address which is the one approving a third party.
+| expiration | [required] An `integer` number representing the timestamp in milliseconds after which the order expires and can not be performed anymore.
+| feeRecipient | An Ethereum account address which will receive the fee value for executing this transaction. If not defined anyone executing the transaction will get the fee.
+| feeValue | [required] A big number `string` representing the amount of tokens `feeRecipient` will get.
+| kind | [required] An `integer` number that equals to `OrderKind.DAPP_VALUE_APPROVE_ORDER`.
+| ledgerId | [required] A `string` representing dapp token address.
+| seed | [required] An `integer` number representing a unique order number.
+| value | [required] A big number `string` representing the amount for which the `approver` is approving the `spender`.
+| spender | [required] A `string` representing an Ethereum account address which will be allowed to spend the set `value` amount in `approver`s name.
+
 ### FixedActionsOrder
 
 This order kind can perform multiple operations such as value transfer, asset transfer, asset creation, asset update, setting user abilities, and destroying assets.
@@ -3743,6 +3759,7 @@ These are the latest addresses that work with the 0xcert Framework version 2.0.0
 | XcertUpdateProxy | [0x2c3ba3407AA5650aBA7101e20BD99bC5f9b0e4D0](https://etherscan.io/address/0x2c3ba3407AA5650aBA7101e20BD99bC5f9b0e4D0)
 | ZXC Token | [0x83e2be8d114f9661221384b3a50d24b96a5653f5](https://etherscan.io/address/0x83e2be8d114f9661221384b3a50d24b96a5653f5)
 | ZXC Burner | [0x033BBe355FF37e57F93Ca06c3CA20BCd0e95ab04](https://etherscan.io/address/0x033BBe355FF37e57F93Ca06c3CA20BCd0e95ab04)
+| DZXC Token (0xcert services) | [0x4926865d7773504264f0c234851D159067ec7f12](https://etherscan.io/address/0x4926865d7773504264f0c234851D159067ec7f12)
 
 ### Ropsten
 

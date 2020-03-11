@@ -484,7 +484,7 @@ An `asynchronous` class instance `function` which creates new actions order.
 
 | Argument | Description
 |-|-
-| order.actions[] | [required] An `array` that can be of different types depending on what actions we want to perform. Option are: create asset, destroy asset, transfer asset, update asset imprint, transfer value, update ledger account permissions. You can find the definitions of the types bellow.
+| order.actions[] | [required] An `array` that can be of different types depending on what actions we want to perform. Option are: create asset, destroy asset, transfer asset, update asset imprint, transfer value, update ledger account permissions. You can find the definitions of the types below.
 | order.signersIds | [required] A `string[]` representing an ethereum addresses of the order signers.
 | order.payerId | A `string` representing an ethereum addresses of the order payer. If payer is not specified `wildcardSigner` field must be set to `true`. If payer is specified it must be listed as order signers in `signersIds` array.
 | order.wildcardSigner | [required] A `boolean` representing if the order allows wild card claiming.
@@ -842,6 +842,192 @@ const actionsOrder = await client.cancelOrder('5dfa35251991e62dff302e08');
 | 400013 | Order is not in correct state to perform this action.
 | 400014 | Account is not identified. Before you start using API on Ethereum mainnet you must provide information about yourself using update account route.
 
+## createApproval(approval, priority)
+
+An `asynchronous` class instance `function` which creates new approval order.
+
+| Argument | Description
+|-|-
+| approval | [required] An `object` representing approval which can be of two different types described below.
+| priority | [required] An `integer` representing the priority of the actions order.
+
+**AssetApprove**
+
+| Argument | Description
+|-|-
+| ledgerId | [required] A `string` representing Ethereum `Xcert` smart contract address on which approval will happen.
+| receiverId | [required] A `string` representing an Ethereum address to which we are setting approval.
+| approve | [required] A `boolean` representing if approval is granted or revoked.
+
+**ValueApprove**
+
+| Argument | Description
+|-|-
+| spender | [required] A `string` representing an Ethereum address to which we are setting approval.
+| value | [required] A `number` representing the number amount of value we are approving.
+
+##### Priorities
+
+| Number | Description
+|-|-
+| 1 | Low priority. 
+| 2 | Medium priority.
+| 3 | High priority.
+| 4 | Critical priority.
+
+**Result:**
+
+An object representing newly created approve order.
+
+**Example:**
+
+```ts
+import { AssetApproveData, Priority } from '@0xcert/client';
+
+const approve: AssetApproveData = {
+  ledgerId: '0x929622a1F945f6908E50Ee3e671C79A043774425',
+  receiverId: '0xF9196F9f176fd2eF9243E8960817d5FbE63D79aa',
+  approve: true,
+};
+
+const approveOrder = await client.createOrder(approve, Priority.HIGH);
+```
+
+##### Possible errors
+
+| Code | Description
+|-|-
+| 7000002 | Client not connected. Please initialize your client first.
+| 400001 | Provided signature is not valid.
+| 400018 | Approve creation failed.
+| 422121 | Approve request validation failed because `approve` is not present.
+| 422122 | Approve request validation failed because `claim` is not present.
+| 422123 | Approve request validation failed because `claim` is not valid.
+| 422124 | Approve request validation failed because `status` is not present.
+| 422125 | Approve request validation failed because `priority` is not present.
+| 422126 | Approve validation failed because `ledgerId` is not present.
+| 422127 | Approve validation failed because `ledgerId` is not valid.
+| 422128 | Approve validation failed because `owner` is not present.
+| 422129 | Approve validation failed because `owner` is not valid.
+| 422130 | Approve validation failed because `operator` is not present.
+| 422131 | Approve validation failed because `operator` is not valid.
+| 422132 | Approve validation failed because `isOperator` is not present.
+| 422133 | Approve validation failed because `tokenTransferData` is not present.
+| 422134 | Approve validation failed because payment is not valid.
+| 422135 | Approve validation failed because `seed` is not present.
+| 422136 | Approve validation failed because `expiration` is not present.
+| 422137 | Approve token transfer data validation failed because `ledgerId` is not present.
+| 422138 | Approve token transfer data validation failed because `ledgerId` is not valid.
+| 422139 | Approve token transfer data validation failed because `receiverId` is not present.
+| 422140 | Approve token transfer data validation failed because `value` is not present.
+| 422141 | Approve token transfer data validation failed because owner does not have enough balance.
+| 422142 | Approve token transfer data validation failed because owner did not approve asset ledger.
+| 422144 | Approve dapp value data validation failed because `ledgerId` is not present.
+| 422145 | Approve dapp value data validation failed because `ledgerId` is not valid.
+| 422146 | Approve dapp value data validation failed because `approver` is not present.
+| 422147 | Approve dapp value data validation failed because `approver` is not valid.
+| 422148 | Approve dapp value data validation failed because approver does not have enough balance.
+| 422149 | Approve dapp value data validation failed because `spender` is not present.
+| 422150 | Approve dapp value data validation failed because `spender` is not valid
+| 422151 | Approve dapp value data validation failed because `value` is not present.
+| 422152 | Approve dapp value data validation failed because `feeRecipient` is not present.
+| 422153 | Approve dapp value data validation failed because `feeRecipient` is not valid.
+| 422154 | Approve dapp value data validation failed because payment is not valid.
+| 422155 | Approve dapp value data validation failed because `feeValue` is not present.
+| 422156 | Approve dapp value data validation failed because `seed` is not present.
+| 422157 | Approve dapp value data validation failed because `expiration` is not present.
+
+## getApproval(approvalRef)
+
+An `asynchronous` class instance `function` which returns currently authenticated account's approval order.
+
+| Argument | Description
+|-|-
+| approvalRef | [required] A `string` representing actions approval reference.
+
+**Result:**
+
+An object representing currently authenticated account's approval order.
+
+**Example:**
+
+```ts
+const approveOrder = await client.getApproval('5dfa35251991e62dff302e08');
+```
+
+##### Possible errors
+
+| Code | Description
+|-|-
+| 7000002 | Client not connected. Please initialize your client first.
+| 400001 | Provided signature is not valid.
+| 400020 | Approval does not exists.
+| 400014 | Account is not identified. Before you start using API on Ethereum mainnet you must provide information about yourself using update account route.
+
+## getApprovals(options)
+
+An `asynchronous` class instance `function` which returns currently authenticated account's actions orders based on filters.
+
+| Argument | Description
+|-|-
+| options.skip | An `integer` that defines the number of items to be skip. Defaults to `0`.
+| options.limit | An `integer` representing the maximum number of items. Defaults to `25`.
+| options.filterIds | A `string[]` that when present only items with specified references are returned.
+| options.statuses | A `integer[]` that when present only items with specified approve order request statuses are returned.
+| options.sort | An `integer` that defines sort strategy.
+
+##### Sort strategies
+
+| Number | Description
+|-|-
+| 1 | Sort by date of creation in ascending order.
+| 2 | Sort by date of creation in descending order.
+
+##### Actions order request statuses
+
+| Number | Description
+|-|-
+| 0 | Initialized.
+| 1 | Pending.
+| 2 | Processing.
+| 3 | Success.
+| 4 | Failure.
+| 5 | Suspended.
+| 6 | Canceled.
+| 7 | Finalized.
+
+**Result:**
+
+A list of objects representing currently authenticated account's actions orders.
+
+**Example:**
+
+```ts
+import { RequestStatus, ApprovalSort } from '@0xcert/client';
+
+const approvalOrders = await client.getApprovals({
+  skip: 0,
+  limit: 10,
+  filterIds: [
+    '5dfa35251991e62dff302e05',
+    '5dfa35251991e62dff302e06',
+  ],
+  statuses: [
+    RequestStatus.INITIALIZED,
+    RequestStatus.PENDING,
+  ],
+  sort: ApproveSort.CREATED_AT_ASC,
+});
+```
+
+##### Possible errors
+
+| Code | Description
+|-|-
+| 7000002 | Client not connected. Please initialize your client first.
+| 400001 | Provided signature is not valid.
+| 400014 | Account is not identified. Before you start using API on Ethereum mainnet you must provide information about yourself using update account route.
+
 ## getLedger(ledgerRef)
 
 An `asynchronous` class instance `function` which returns currently authenticated account's ledger.
@@ -1059,7 +1245,7 @@ An `asynchronous` class instance `function` which returns currently authenticate
 | options.skip | An `integer` that defines the number of items to be skip. Defaults to `0`.
 | options.limit | An `integer` representing the maximum number of items. Defaults to `25`.
 | options.fromDate | A `date` that when present only items that have creation date greater then specified date are returned.
-| options.toDate | A `date` that when present only items that have creation date bellow the specified date are returned.
+| options.toDate | A `date` that when present only items that have creation date below the specified date are returned.
 
 **Result:**
 
@@ -1096,7 +1282,7 @@ An `asynchronous` class instance `function` which returns currently authenticate
 | options.skip | An `integer` that defines the number of items to be skip. Defaults to `0`.
 | options.limit | An `integer` representing the maximum number of items. Defaults to `25`.
 | options.fromDate | A `date` that when present only items that have creation date greater then specified date are returned.
-| options.toDate | A `date` that when present only items that have creation date bellow the specified date are returned.
+| options.toDate | A `date` that when present only items that have creation date below the specified date are returned.
 
 **Result:**
 
@@ -1133,7 +1319,7 @@ An `asynchronous` class instance `function` which returns information about ZXC 
 | options.skip | An `integer` that defines the number of items to be skip. Defaults to `0`.
 | options.limit | An `integer` representing the maximum number of items. Defaults to `25`.
 | options.fromDate | A `date` that when present only items that have creation date greater then specified date are returned.
-| options.toDate | A `date` that when present only items that have creation date bellow the specified date are returned.
+| options.toDate | A `date` that when present only items that have creation date below the specified date are returned.
 | filterIds | A `string[]` that when present only tickers with specified IDs are returned.
 | sort | An `integer` that defines sort strategy.
 
@@ -1206,7 +1392,7 @@ An `asynchronous` class instance `function` which returns currently authenticate
 | options.methods | A `string[]` that when present only items with specified HTTP request method are returned (GET, POST, PUT, DELETE).
 | options.status | A `number` that when present only items with specified HTTP request status are returned.
 | options.fromDate | A `date` that when present only items that have creation date greater then specified date are returned.
-| options.toDate | A `date` that when present only items that have creation date bellow the specified date are returned.
+| options.toDate | A `date` that when present only items that have creation date below the specified date are returned.
 | options.sort | An `integer` that defines sort strategy.
 
 ##### Sort strategies

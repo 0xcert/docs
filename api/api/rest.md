@@ -497,6 +497,160 @@ Most of the API routes restrict public access and require authentication. Authen
 | 400001 | Provided signature is not valid.
 | 400014 | Account is not identified. Before you start using API on Ethereum mainnet you must provide information about yourself using update account route.
 
+### Approvals
+
+#### [private] POST /approvals
+
+> Creates an approval order.
+
+##### Body fields
+
+| Name | Description
+|-|-
+| claim | [required] A `string` representing an ethereum signature of deploy order.
+| approval | [required] An `object` representing the approval we want to create. There two options: `AssetApproveOrder`, `DappValueApproveOrder` definitions for which you can find bellow.
+| priority | [required] An `integer` representing the priority of the order.
+
+**AssetApproveOrder**
+
+| Name | Description
+|-|-
+| expiration | [required] A `number` representing how long this order is valid. Must be a UNIX timestamp.
+| isOperator | [required] A `boolean` representing if we are granting or revoking approval.
+| kind | [required] An `integer` representing approve kind. Must be `7` for asset approve order.
+| ledgerId | [required] A `string` representing Ethereum `Xcert` smart contract address on which the approval will happen.
+| owner | [required] A `string` representing an Ethereum address that is the owner of assets and is approving an operator.
+| operator | [required] A `string` representing an Ethereum address that is receiving the approval.
+| seed | [required] A `number` representing salt for hash uniqueness. Usually UNIX timestamp.
+| tokenTransferData.ledgerId | [required] A `string` representing the ethereum address of an ERC-20 compatible smart contract on which token will be transferred.
+| tokenTransferData.receiverId | [required] A `string` representing the ethereum of the ERC-20 tokens receiver.
+| tokenTransferData.value | [required] A `string` representing the amount of ERC-20 tokens that will get transferred.
+
+**DappValueApproveOrder**
+
+| Name | Description
+|-|-
+| approver | [required] A `string` representing an Ethereum address that is approving the spender.
+| expiration | [required] A `number` representing how long this order is valid. Must be a UNIX timestamp.
+| feeRecipient | [required] A `string` representing the ethereum address that will receive the `feeValue`.
+| feeValue | [required] A `string` representing the amount of Dapp tokens that will get transferred to the `feeRecipient`.
+| kind | [required] An `integer` representing approve kind. Must be `8` for dapp value approve order.
+| ledgerId | [required] A `string` representing Ethereum `Dapp token (DZXC)` smart contract address on which the approval will happen.
+| seed | [required] A `number` representing salt for hash uniqueness. Usually UNIX timestamp.
+| spender | [required] A `string` representing an Ethereum address that is receiving the approval.
+| value | [required] A `string` representing the amount of tokens that will be approved by the `approver`.
+
+##### Priorities
+
+| Number | Description
+|-|-
+| 1 | Low priority. 
+| 2 | Medium priority.
+| 3 | High priority.
+| 4 | Critical priority.
+
+##### Possible errors
+
+| Code | Description
+|-|-
+| 400001 | Provided signature is not valid.
+| 400018 | Approve creation failed.
+| 422121 | Approve request validation failed because `approve` is not present.
+| 422122 | Approve request validation failed because `claim` is not present.
+| 422123 | Approve request validation failed because `claim` is not valid.
+| 422124 | Approve request validation failed because `status` is not present.
+| 422125 | Approve request validation failed because `priority` is not present.
+| 422126 | Approve validation failed because `ledgerId` is not present.
+| 422127 | Approve validation failed because `ledgerId` is not valid.
+| 422128 | Approve validation failed because `owner` is not present.
+| 422129 | Approve validation failed because `owner` is not valid.
+| 422130 | Approve validation failed because `operator` is not present.
+| 422131 | Approve validation failed because `operator` is not valid.
+| 422132 | Approve validation failed because `isOperator` is not present.
+| 422133 | Approve validation failed because `tokenTransferData` is not present.
+| 422134 | Approve validation failed because payment is not valid.
+| 422135 | Approve validation failed because `seed` is not present.
+| 422136 | Approve validation failed because `expiration` is not present.
+| 422137 | Approve token transfer data validation failed because `ledgerId` is not present.
+| 422138 | Approve token transfer data validation failed because `ledgerId` is not valid.
+| 422139 | Approve token transfer data validation failed because `receiverId` is not present.
+| 422140 | Approve token transfer data validation failed because `value` is not present.
+| 422141 | Approve token transfer data validation failed because owner does not have enough balance.
+| 422142 | Approve token transfer data validation failed because owner did not approve asset ledger.
+| 422144 | Approve dapp value data validation failed because `ledgerId` is not present.
+| 422145 | Approve dapp value data validation failed because `ledgerId` is not valid.
+| 422146 | Approve dapp value data validation failed because `approver` is not present.
+| 422147 | Approve dapp value data validation failed because `approver` is not valid.
+| 422148 | Approve dapp value data validation failed because approver does not have enough balance.
+| 422149 | Approve dapp value data validation failed because `spender` is not present.
+| 422150 | Approve dapp value data validation failed because `spender` is not valid
+| 422151 | Approve dapp value data validation failed because `value` is not present.
+| 422152 | Approve dapp value data validation failed because `feeRecipient` is not present.
+| 422153 | Approve dapp value data validation failed because `feeRecipient` is not valid.
+| 422154 | Approve dapp value data validation failed because payment is not valid.
+| 422155 | Approve dapp value data validation failed because `feeValue` is not present.
+| 422156 | Approve dapp value data validation failed because `seed` is not present.
+| 422157 | Approve dapp value data validation failed because `expiration` is not present.
+
+#### [private] GET /approvals/:approvalRef
+
+> Gets specific approval information.
+
+##### Path parameters
+
+| Name | Description
+|-|-
+| approvalRef | [required] A `string` representing approval reference.
+
+##### Possible errors
+
+| Code | Description
+|-|-
+| 400001 | Provided signature is not valid.
+| 400020 | Approval does not exists.
+| 400014 | Account is not identified. Before you start using API on Ethereum mainnet you must provide information about yourself using update account route.
+
+#### [private] GET /approvals
+
+> Gets approvals based on filters.
+
+##### Query parameters
+
+| Name | Description
+|-|-
+| skip | An `integer` that defines the number of items to be skip. Defaults to `0`.
+| limit | An `integer` representing the maximum number of items. Defaults to `25`.
+| filterIds | A `string[]` that when present only items with specified references are returned.
+| statuses | A `integer` that when present only items with specified request statuses are returned.
+| sort | An `integer` that defines sort strategy.
+
+##### Sort strategies
+
+| Number | Description
+|-|-
+| 1 | Sort by approval reference in ascending order.
+| 2 | Sort by approval reference in descending order.
+
+##### Request statuses
+
+| Number | Description
+|-|-
+| 0 | Initialized.
+| 1 | Pending.
+| 2 | Processing.
+| 3 | Success.
+| 4 | Failure.
+| 5 | Suspended.
+| 6 | Canceled.
+| 7 | Finalized.
+
+##### Possible errors
+
+| Code | Description
+|-|-
+| 400001 | Provided signature is not valid.
+| 400014 | Account is not identified. Before you start using API on Ethereum mainnet you must provide information about yourself using update account route.
+
 ### Deposits
 
 #### [private] POST /deposits
@@ -888,3 +1042,29 @@ Most of the API routes restrict public access and require authentication. Authen
 |-|-
 | 1 | Sort by date of creation in ascending order.
 | 2 | Sort by date of creation in descending order.
+
+### Badge
+
+#### GET /badge
+
+> Gets badge showing if asset is valid or not.
+
+##### Query parameters
+
+| Name | Description
+|-|-
+| assetId | [required] A `string` representing the asset id.
+| ledgerId | [required] A `string` representing `assetLedgerId` for which we are checking asset validity.
+| validImg | A `string` representing the URI of an image that will be returned if asset is valid. Defaults to `https://verify.0xcert.org/images/trusted.svg`. 
+| invalidImg | A `string` representing the URI of an image that will be returned if asset is invalid. Defaults to `https://verify.0xcert.org/images/untrusted.svg`. 
+
+##### Possible errors
+
+| Code | Description
+|-|-
+| 400016 | Asset not found or does not have a URI set.
+| 400017 | Error fetching necessary data from asset URI.
+| 400019 | Error fetching badge image.
+| 422116 | Badge validation failed because badges `assetId` is not present.
+| 422117 | Badge validation failed because `ledgerId` is not valid eth address.
+| 422118 | Badge validation failed because badges `ledgerId` is not present.
