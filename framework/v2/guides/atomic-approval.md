@@ -2,7 +2,7 @@
 
 The main purpose of atomic approval is to delegate ETH execution to a third party enabling ETH-less transactions.
 
-There are two different atomic approvals. One is approving usage of assets on an `AssetLedger` to a third party. The second is approving value transfer of Dapp token - DZXC (classic ERC20 contracts do not have this capability) to a third party. Learn more about Dapp tokens [here](https://0xcert.org/news/dapp-token-zxc-economy).
+There are two different atomic approvals. One is approving the usage of assets on an `AssetLedger` to a third party. The second is approving value transfer of Dapp token - DZXC (classic ERC20 contracts do not have this capability) to a third party. Learn more about Dapp tokens [here](https://0xcert.org/news/dapp-token-zxc-economy).
 
 The difference with doing a normal approval is that in an atomic action you specify: who you are approving (same as doing a normal approval), the receiver of a value transaction (fee), and the executor of the order (can be set to a direct address or anyone). This enables approval in a fashion that the user defines an order and value transfer of some token, and anyone, willing to execute the approval for the value fee, can do it.
 

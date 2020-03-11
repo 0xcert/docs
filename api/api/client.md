@@ -484,7 +484,7 @@ An `asynchronous` class instance `function` which creates new actions order.
 
 | Argument | Description
 |-|-
-| order.actions[] | [required] An `array` that can be of different types depending on what actions we want to perform. Option are: create asset, destroy asset, transfer asset, update asset imprint, transfer value, update ledger account permissions. You can find the definitions of the types bellow.
+| order.actions[] | [required] An `array` that can be of different types depending on what actions we want to perform. Option are: create asset, destroy asset, transfer asset, update asset imprint, transfer value, update ledger account permissions. You can find the definitions of the types below.
 | order.signersIds | [required] A `string[]` representing an ethereum addresses of the order signers.
 | order.payerId | A `string` representing an ethereum addresses of the order payer. If payer is not specified `wildcardSigner` field must be set to `true`. If payer is specified it must be listed as order signers in `signersIds` array.
 | order.wildcardSigner | [required] A `boolean` representing if the order allows wild card claiming.
@@ -848,7 +848,7 @@ An `asynchronous` class instance `function` which creates new approval order.
 
 | Argument | Description
 |-|-
-| approval | [required] An `object` representing approval which can be of two different types described bellow.
+| approval | [required] An `object` representing approval which can be of two different types described below.
 | priority | [required] An `integer` representing the priority of the actions order.
 
 **AssetApprove**
@@ -1245,7 +1245,7 @@ An `asynchronous` class instance `function` which returns currently authenticate
 | options.skip | An `integer` that defines the number of items to be skip. Defaults to `0`.
 | options.limit | An `integer` representing the maximum number of items. Defaults to `25`.
 | options.fromDate | A `date` that when present only items that have creation date greater then specified date are returned.
-| options.toDate | A `date` that when present only items that have creation date bellow the specified date are returned.
+| options.toDate | A `date` that when present only items that have creation date below the specified date are returned.
 
 **Result:**
 
@@ -1282,7 +1282,7 @@ An `asynchronous` class instance `function` which returns currently authenticate
 | options.skip | An `integer` that defines the number of items to be skip. Defaults to `0`.
 | options.limit | An `integer` representing the maximum number of items. Defaults to `25`.
 | options.fromDate | A `date` that when present only items that have creation date greater then specified date are returned.
-| options.toDate | A `date` that when present only items that have creation date bellow the specified date are returned.
+| options.toDate | A `date` that when present only items that have creation date below the specified date are returned.
 
 **Result:**
 
@@ -1319,7 +1319,7 @@ An `asynchronous` class instance `function` which returns information about ZXC 
 | options.skip | An `integer` that defines the number of items to be skip. Defaults to `0`.
 | options.limit | An `integer` representing the maximum number of items. Defaults to `25`.
 | options.fromDate | A `date` that when present only items that have creation date greater then specified date are returned.
-| options.toDate | A `date` that when present only items that have creation date bellow the specified date are returned.
+| options.toDate | A `date` that when present only items that have creation date below the specified date are returned.
 | filterIds | A `string[]` that when present only tickers with specified IDs are returned.
 | sort | An `integer` that defines sort strategy.
 
@@ -1392,7 +1392,7 @@ An `asynchronous` class instance `function` which returns currently authenticate
 | options.methods | A `string[]` that when present only items with specified HTTP request method are returned (GET, POST, PUT, DELETE).
 | options.status | A `number` that when present only items with specified HTTP request status are returned.
 | options.fromDate | A `date` that when present only items that have creation date greater then specified date are returned.
-| options.toDate | A `date` that when present only items that have creation date bellow the specified date are returned.
+| options.toDate | A `date` that when present only items that have creation date below the specified date are returned.
 | options.sort | An `integer` that defines sort strategy.
 
 ##### Sort strategies

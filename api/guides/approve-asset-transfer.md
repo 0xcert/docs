@@ -1,12 +1,12 @@
 # Approve asset transfer
 
-As we mentioned before 0xcert API is fully decentralized and you are always in control of your assets. Because of that if you transfer an asset to a new owner and he would try to transfer if again that transfer would fail. Why is that? That is because he needs to first allow 0xcert API to transfer assets in his name (with the help of his signature). This is why he needs to do two steps before transfering the asset. 
+As we mentioned before 0xcert API is fully decentralized and you are always in control of your assets. Because of that if you transfer an asset to a new owner and he would try to transfer if again that transfer would fail. Why is that? That is because he needs to first allow 0xcert API to transfer assets in his name (with the help of his signature). This is why he needs to do two steps before transferring the asset. 
 
 1. He needs to approve value transfer for specific `assetLedger` of which he wants to transfer assets.
 2. He approves 0xcert API for asset transfer.
 3. Now he can [normally](transfer-asset.html) transfer the asset.
 
-To explain the steps. First he needs to approve value transfer so that we can take fee payment for execution. Second he creates approval for transfer for which we take the fee. Finally he transfers the asset. Note that each user only needs to do this once, after that he can transfer any amount of assets from this asset ledger. 
+To explain the steps. First, he needs to approve value transfer so that we can take fee payment for execution. Second, he creates approval for transfer for which we take the fee. Finally, he transfers the asset. Note that each user only needs to do this once, after that he can transfer any amount of assets from this asset ledger. 
 
 ::: card Live example
 Click [here](https://codesandbox.io/s/github/0xcert/api-example-approval?module=%2FREADME.md) to check the live example for this section.
@@ -34,7 +34,7 @@ const client = new Client({
 await client.init();
 ```
 ::: warning
-For successful client initialization you need connected 0xcert framework provider instance. See [Using providers](providers.html#providers) chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
+For successful client initialization, you need connected 0xcert framework provider instance. See [Using providers](providers.html#providers) chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
 :::
 
 Once client is initialized, we define our value approve order.
