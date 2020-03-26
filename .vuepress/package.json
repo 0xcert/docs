@@ -8,14 +8,14 @@
     "deploy": "./deploy.sh"
   },
   "dependencies": {
-    "vuepress": "1.2.0"
+    "vuepress": "1.4.0"
   },
   "devDependencies": {
-    "@vuepress/plugin-google-analytics": "1.2.0",
-    "@vuepress/plugin-pwa": "1.2.0",
-    "@vuepress/plugin-register-components": "^1.2.0",
+    "@vuepress/plugin-google-analytics": "1.4.0",
+    "@vuepress/plugin-pwa": "1.4.0",
+    "@vuepress/plugin-register-components": "^1.4.0",
     "markdown-it-container": "2.0.0",
     "node-sass": "^4.13.1",
-    "sass-loader": "8.0.0"
+    "sass-loader": "8.0.2"
   }
 }
