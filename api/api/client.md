@@ -10,7 +10,7 @@ We recommend you employ the client module as an NPM package in your application.
 $ npm i --save @0xcert/client
 ```
 
-On our official open-source [GitHub repository](https://github.com/0xcert/framework), we also host a compiled and minimized JavaScript files that can be directly implemented into your application or website. Please also refer to the [API Reference](/api/core.html) section to learn more about certification.
+On our official open-source [GitHub repository](https://github.com/0xcert/framework), we also host a compiled and minimized JavaScript files that can be directly implemented into your application or website.
 
 ## Function responses
 
@@ -31,7 +31,7 @@ In case of a failure we have two different kind of error responses:
 
 ### Client fetch error
 
-Client fetch error represents the error thrown by client when the 0xcert API(link) server responds with error. In case of failure, client responds with `errors` key, which holds a list of error objects.
+Client fetch error represents the error thrown by client when the 0xcert API server responds with error. In case of failure, client responds with `errors` key, which holds a list of error objects.
 
 ```js
 {
@@ -153,7 +153,7 @@ const client = new Client({
 
 **See also:**
 
-[Using providers](#using-providers)
+[Providers](/api/guides/providers.html#installation-process)
 
 ## init()
 
@@ -237,7 +237,9 @@ const accountWebhook = await client.getAccountWebhook();
 | 400001 | Provided signature is not valid.
 | 400014 | Account is not identified. Before you start using API on Ethereum mainnet you must provide information about yourself using update account route.
 
-You can learn more about webhooks in chapter [Webhooks](client.html#webhooks).
+**See also:**
+
+[Webhooks](client.html#webhooks)
 
 ## updateAccountWebhook(url, events)
 
@@ -284,7 +286,9 @@ const accountWebhook = await client.updateAccountWebhook('https://api.0xcert.org
 | 422067 | Webhook validation failed because `url` is not present.
 | 422114 | Webhook validation failed because `url` is not valid.
 
-You can learn more about webhooks in chapter [Webhooks](client.html#webhooks).
+**See also:**
+
+[Webhooks](client.html#webhooks)
 
 ## updateAccountInformation(accountInformation)
 
