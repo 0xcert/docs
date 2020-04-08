@@ -84,6 +84,51 @@ Client errors include a unique code number, error message and original thrown er
 }
 ```
 
+## Webhooks
+
+Client uses webhooks for event notifications. Webhooks are HTTP callbacks that receive notification messages for occurred events. You can set up your account's webhook and subscribe to different events with function [updateAccountWebhook(url, events)](client.html#updateaccountwebhook-url-events). Webhooks will be sent to your chosen URL with a HTTP method `POST`, so your webhook handler should be configured properly.
+
+### Events
+
+Webhook events are triggered when either Order request, Approve request or Deployment request is changed. Client supports six different kind of events based on changes in Order / Deployment / Approve requests.
+
+| Event kind | Description
+|-|-
+| 0 | Order request changed - Event triggers when Order object changes during processing.
+| 1 | Order request error - Event triggers when an error occurs during processing of the Order.
+| 2 | Deployment request changed - Event triggers when Deployment object changes during processing.
+| 3 | Deployment request error - Event triggers when an error occurs during processing of the Deployment.
+| 4 | Approve request changed - Event triggers when Approve request object changes during processing.
+| 5 | Approve request error - Event triggers when an error occurs during processing of the Approve request.
+
+### Webhook response body
+
+Webhook response body includes three important parameters:
+
+| Parameter | Description
+|-|-
+| requestRef | A `string` representing either Order request, Approve request or Deployment request reference.
+| requestKind | A `integer` representing the kind of the request on which errors or changes occurred. Can be one of the [Request kinds](client.html#request-kinds).
+| kind | A `integer` representing the kind of the event that occurred. Event kinds can be found in previous chapter [Events](client.html#events).
+
+##### Request kinds
+
+| Number | Description
+|-|-
+| 0 | Order request.
+| 1 | Deployment request.
+| 2 | Approve request.
+
+With these parameters we can determine which of our requests was changed. Based on the `requestKind` we can decide which function should we use for obtaining our changed request. We provide `requestRef` from received webhook, to our getter function.
+
+| Request kind | Function for obtaining request object
+|-|-
+| 0 | [getOrder(requestRef)](client.html#getorder-orderref).
+| 1 | [getDeployment(requestRef)](client.html#getdeployment-deploymentref).
+| 2 | [getApproval(requestRef)](client.html#getapproval-approvalref).
+
+We can also decide which function should we use for obtaining our changed request with event `kind` parameter.
+
 ## Client(options)
 
 A class providing communication with the 0xcert API.
@@ -192,6 +237,8 @@ const accountWebhook = await client.getAccountWebhook();
 | 400001 | Provided signature is not valid.
 | 400014 | Account is not identified. Before you start using API on Ethereum mainnet you must provide information about yourself using update account route.
 
+You can learn more about webhooks in chapter [Webhooks](client.html#webhooks).
+
 ## updateAccountWebhook(url, events)
 
 An `asynchronous` class instance `function` which updates currently authenticated account's webhook data.
@@ -211,6 +258,8 @@ An `asynchronous` class instance `function` which updates currently authenticate
 | 1 | Order request error.
 | 2 | Deployment request changed.
 | 3 | Deployment request error.
+| 4 | Approve request changed.
+| 5 | Approve request error.
 
 **Result:**
 
@@ -234,6 +283,8 @@ const accountWebhook = await client.updateAccountWebhook('https://api.0xcert.org
 | 422066 | Webhook validation failed because `events` is not valid.
 | 422067 | Webhook validation failed because `url` is not present.
 | 422114 | Webhook validation failed because `url` is not valid.
+
+You can learn more about webhooks in chapter [Webhooks](client.html#webhooks).
 
 ## updateAccountInformation(accountInformation)
 
