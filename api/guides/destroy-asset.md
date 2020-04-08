@@ -28,7 +28,7 @@ const client = new Client({
 await client.init();
 ```
 ::: warning
-For successful client initialization you need connected 0xcert framework provider instance. See [Using providers](providers.html#providers) chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
+For successful client initialization you need connected 0xcert framework provider instance. See [Providers](providers.html#providers) chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
 :::
 
 Once client is initialized, we define our destroy asset action.
@@ -93,3 +93,7 @@ const status = await client.getOrder(actionsOrder.ref).then((data) => data.data.
 ```
 
 If the status of the action order equals to `7`, we know that our order was performed successfully and our asset was destroyed. All queries about the destroyed asset will be invalid from now on.
+
+::: tip
+You can also set up and receive webhooks. In this scenario you will receive webhooks when our order changes (updated or successful) or if it fails. You can learn more about webhooks in chapter [Webhooks](api/api/client.html#webhooks). 
+:::

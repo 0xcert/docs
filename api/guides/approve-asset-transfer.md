@@ -34,7 +34,7 @@ const client = new Client({
 await client.init();
 ```
 ::: warning
-For successful client initialization, you need connected 0xcert framework provider instance. See [Using providers](providers.html#providers) chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
+For successful client initialization, you need connected 0xcert framework provider instance. See [Providers](providers.html#providers) chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
 :::
 
 Once client is initialized, we define our value approve order.
@@ -63,6 +63,10 @@ const status = await client.getApproval(valueApproveOrder.ref).then((data) => da
 ```
 
 If the status of the order equals to `7`, we know that our order was performed successfully and value was approved.
+
+::: tip
+You can also set up and receive webhooks. In this scenario you will receive webhooks when our approval changes (updated or successful) or if it fails. You can learn more about webhooks in chapter [Webhooks](api/api/client.html#webhooks). 
+:::
 
 Now we can approve asset for transfer. First lets create approve order:
 
@@ -94,3 +98,7 @@ And like with value approve order we can check upon its status like so:
 ```ts
 const assetApproveOrderStatus = await client.getApproval(assetApproveOrder.ref).then((data) => data.data.status);
 ```
+
+::: tip
+You can also set up and receive webhooks. In this scenario you will receive webhooks when our approval changes (updated or successful) or if it fails. You can learn more about webhooks in chapter [Webhooks](api/api/client.html#webhooks). 
+:::
