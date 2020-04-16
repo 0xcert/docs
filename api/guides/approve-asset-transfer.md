@@ -65,7 +65,7 @@ const status = await client.getApproval(valueApproveOrder.ref).then((data) => da
 If the status of the order equals to `7`, we know that our order was performed successfully and value was approved.
 
 ::: tip
-You can also set up and receive webhooks. In this scenario you will receive webhooks when our approval changes (updated or successful) or if it fails. You can learn more about webhooks in chapter [Webhooks](api/api/client.html#webhooks). 
+You can also set up and receive webhooks. In this scenario you will receive webhooks when our approval changes (updated or successful) or if it fails. You can learn more about webhooks in chapter [Webhooks](/api/api/client.html#webhooks). 
 :::
 
 Now we can approve asset for transfer. First lets create approve order:
@@ -100,5 +100,5 @@ const assetApproveOrderStatus = await client.getApproval(assetApproveOrder.ref).
 ```
 
 ::: tip
-You can also set up and receive webhooks. In this scenario you will receive webhooks when our approval changes (updated or successful) or if it fails. You can learn more about webhooks in chapter [Webhooks](api/api/client.html#webhooks). 
+You can also set up and receive webhooks. In this scenario you will receive webhooks when our approval changes (updated or successful) or if it fails. You can learn more about webhooks in chapter [Webhooks](/api/api/client.html#webhooks). 
 :::
