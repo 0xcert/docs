@@ -86,7 +86,7 @@ Client errors include a unique code number, error message and original thrown er
 
 ## Webhooks
 
-Client uses webhooks for event notifications. Webhooks are HTTP callbacks that receive notification messages for occurred events. You can set up your account's webhook and subscribe to different events with function [updateAccountWebhook(url, events)](client.html#updateaccountwebhook-url-events). Webhooks will be sent to your chosen URL with a HTTP method `POST`, so your webhook handler should be configured properly.
+Client uses webhooks for event notifications. Webhooks are HTTP callbacks that receive notification messages for occurred events. You can set up your account's webhook and subscribe to different events with function [updateAccountWebhook(url, events)](client.html#updateaccountwebhook-url-events). You can also set up your webhooks [using dashboard](/api/guides/dashboard.html#using-dashboard).Webhooks will be sent to your chosen URL with a HTTP method `POST`, so your webhook handler should be configured properly.
 
 ### Events
 

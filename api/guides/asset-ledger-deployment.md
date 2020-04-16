@@ -79,5 +79,5 @@ const ledger = await client.getLedger(deployment.ledgerRef).then((data) => data.
 ```
 
 ::: tip
-You can also set up and receive webhooks. In this scenario you will receive webhooks when our deployment changes (updated or successful) or if it fails. You can learn more about webhooks in chapter [Webhooks](api/api/client.html#webhooks). 
+You can also set up and receive webhooks. In this scenario you will receive webhooks when our deployment changes (updated or successful) or if it fails. You can learn more about webhooks in chapter [Webhooks](/api/api/client.html#webhooks). 
 :::

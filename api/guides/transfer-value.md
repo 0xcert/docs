@@ -89,5 +89,5 @@ const status = await client.getOrder(actionsOrder.ref).then((data) => data.data.
 If the status of the action order equals to `7`, we know that our order was performed successfully a `ERC20` assets were transferred.
 
 ::: tip
-You can also set up and receive webhooks. In this scenario you will receive webhooks when our order changes (updated or successful) or if it fails. You can learn more about webhooks in chapter [Webhooks](api/api/client.html#webhooks). 
+You can also set up and receive webhooks. In this scenario you will receive webhooks when our order changes (updated or successful) or if it fails. You can learn more about webhooks in chapter [Webhooks](/api/api/client.html#webhooks). 
 :::
