@@ -5,7 +5,7 @@ In this guide we will update an existing assets imprint.
 
 ## Prerequisites
 
-In this guide, we will assume you have gone through the [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) guide and have deployed an asset ledger and that you have gone trough [Issue asset](asset-ledger-deployment.html#asset-ledger-deployment) guide and created asset. You will also need a MetaMask/Bitski account with some credits.
+In this guide, we will assume you have gone through the [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) guide and have deployed an asset ledger and that you have gone trough [Issue asset](asset-ledger-deployment.html#asset-ledger-deployment) guide and created asset. You will also need a MetaMask account with some credits.
 
 ::: warning
 Asset ledger must have `UPDATE_ASSET` capability.

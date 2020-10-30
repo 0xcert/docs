@@ -8,7 +8,7 @@ Click [here](https://codesandbox.io/s/github/0xcert/api-example-order?module=%2F
 
 ## Prerequisites
 
-In this guide, we will assume you have gone through the [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) guide and have deployed an asset ledger. You will also need a MetaMask/Bitski account with some credits.
+In this guide, we will assume you have gone through the [Asset ledger deployment](asset-ledger-deployment.html#asset-ledger-deployment) guide and have deployed an asset ledger. You will also need a MetaMask account with some credits.
 
 ## Usage overview
 
