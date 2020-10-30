@@ -13,7 +13,7 @@ You also have an overview of your deployed ledgers and most importantly, your cu
 
 ## Login
 
-To use the Dashboard, you need an existing Ethereum address to manage your ledgers. The wallet needs to be handled by either [Metamask](https://metamask.io/) bridge or [Bitski](https://www.bitski.com/) wallet. So if you don't have any, you first have to create one. Once your client of choice is ready, you can login to the dashboard.
+To use the Dashboard, you need an existing Ethereum address to manage your ledgers. The wallet needs to be handled by either [Metamask](https://metamask.io/) bridge. So if you don't have any, you first have to create one. Once your client is ready, you can login to the dashboard.
 
 ![login](../assets/login.svg)
 

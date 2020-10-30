@@ -8,7 +8,7 @@ Click [here](https://codesandbox.io/s/github/0xcert/api-example-order?module=%2F
 
 ## Prerequisites
 
-You will need a MetaMask/Bitski account with some credits.
+You will need a MetaMask account with some credits.
 
 ## Usage overview
 

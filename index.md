@@ -51,7 +51,6 @@ pageClass: homepage
   <div class="logos">
     <img src="/ethereum.png"/>
     <img src="/wanchain.png"/>
-    <img src="/logo-bitski.svg"/>
     <img src="/logo-metamask.svg"/>
   </div>
 </div>
