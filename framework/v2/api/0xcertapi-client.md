@@ -1,4 +1,4 @@
-# 0xcertAPI client
+# 0xcert API client
 
 The 0xcert API Client is a JavaScript library written in TypeScript, that provides a complete set of tools for easier communication with the 0xcert API. 0xcert API is language independent software as a service with a RESTful API endpoint built for developers.
 
@@ -310,7 +310,7 @@ An `asynchronous` class instance `function` which creates new deployment
 | deployData.name | [required] A `string` representing the name of the asset ledger.
 | deployData.symbol | [required] A `string` representing the symbol of the asset ledger.
 | deployData.uriPrefix | [required] A `string` representing the URI prefix of the asset ledger.
-| deployData.uriPostfix | [required] A `string` representing the URI postfix of the asset ledger.
+| deployData.uriPostfix | [required] A `string` representing the URI postfix of the asset ledger. Can be an empty string.
 | deployData.schemaId | [required] A `string` representing the schemaId of the asset ledger.
 | deployData.capabilities[] | [required] An `integer[]` representing the capabilities of the asset ledger.
 | deployData.ownerId | [required] A `string` representing the ethereum address that will get all abilities of the asset ledger.
@@ -368,7 +368,6 @@ const deployment = await client.createDeployment({
 | 422039 | Deploy validation failed because `assetLedgerData` is not present.
 | 422040 | Deploy validation failed because `assetLedgerData.name` is not present.
 | 422041 | Deploy validation failed because `assetLedgerData.symbol` is not present.
-| 422042 | Deploy validation failed because `assetLedgerData.uriPostfix` is not present.
 | 422043 | Deploy validation failed because `assetLedgerData.uriPrefix` is not present.
 | 422044 | Deploy validation failed because `assetLedgerData.schemaId` is not present.
 | 422045 | Deploy validation failed because `assetLedgerData.capabilities` is not present.
@@ -661,6 +660,7 @@ const actionsOrder = await client.createOrder(order, Priority.HIGH);
 | 422024 | Asset validation failed because `imprint` is not present.
 | 422036 | Asset validation failed because `ledgerId` is not present.
 | 422013 | Asset validation failed because `id` is not unique on selected ledger.
+| 422158 | Order action validation failed because `assetImprint` is not valid.
 
 ## getOrder(orderRef)
 

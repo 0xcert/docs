@@ -34,7 +34,7 @@ For the beginning of this guide, we will create a `FixedActionsOrder`, the simpl
 
 ## Prerequisites
 
-In this guide, we will assume you have gone through the [Asset Management]() guide and have deployed an `AssetLedger`, as well created an asset with ID `100`. You will also need three MetaMask accounts (create them through your MetaMask plug-in) with some ETH available.
+In this guide, we will assume you have gone through the [Asset Management](/framework/v2/api/asset-management.html) guide and have deployed an `AssetLedger`, as well created an asset with ID `100`. You will also need three MetaMask accounts (create them through your MetaMask plug-in) with some ETH available.
 
 ## Installation
 

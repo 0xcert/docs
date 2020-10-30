@@ -1932,8 +1932,9 @@ const mutation = await ledger.transferValue(recipe);
 
 ## Gateway
 
+
 The Gateway allows for performing multiple actions in a single atomic swap. The gateway always operates with an order.
-There are different kinds of order, depending on the type of action you want to perform. We can separate orders into two groups
+There are different kinds of order, depending on the type of action you want to perform. We can separate orders into three groups
 based on their functionality and their flow. First, there are orders for deploying a new `ValueLedger` and `AssetLedger`. 
 These two orders only perform the deployment of a new smart contract to the blockchain plus a transfer of ERC-20 tokens (value). 
 They are primarily targeted to delegating a deployment to a third party. For example, if you want to deploy a new `AssetLedger`
@@ -1949,7 +1950,15 @@ In this case, the taker can also be defined as "anyone", meaning you can define 
 
 Order kinds that fit into this group are:
 - `DeployAssetLedgerOrder`
-- `DeployValueLedgerOrder` 
+- `DeployValueLedgerOrder`
+
+Then we have `AssetSetOperatorOrder` of which primary function is similar as deploy order which is to delegate the execution to someone else in exchange for tokens. Enabling meta transaction (no eth operation). The flow for this order is:
+
+1. The address (`owner`) that wants to set an operator is the one that creates the order.
+2. Owner generates the order claim and signs it (`sign` function).
+3. Owner approves value transfer if necessary.
+4. Owner sends the order and signature to the executor (through arbitrary ways).
+5. Executor performs the order. Executor can be predefined or anyone depending on the order.
 
 Then, there are orders for performing actions on existing ledgers. These orders are really powerful, but this makes them more complicated, too.
 Unlike deploy orders that have a specific maker and taker, the actions order are more dynamic, allowing an X number of participants to join but who need to sign an order for it to be valid.
@@ -1962,12 +1971,12 @@ That also means that we can have multiple participants performing actions in a s
 - Update account abilities
 
 Since we have multiple participants in an order, there are four different ways to interact with it, resulting in four `ActionsOrder`s differentiating only in the way participants interact with it, namely:
-- `FixedActionsOrder` - All participants are known and set in the order. Only the last defined participant can peform the order, other participants have to provide signatures.
+- `FixedActionsOrder` - All participants are known and set in the order. Only the last defined participant can perform the order, other participants have to provide signatures.
 - `SignedFixedActionsOrder` - All participants are known and set in the order. All participants have to provide signatures. Any participant can perform the order.
 - `DynamicActionsOrder` - The last participant can be unknown or "any". All defined participants have to provide signatures. Any participant can peform the order and automatically becomes the last participant.
 - `SignedDynamicActionsOrder` - The last participant can be unknown or "any". All defined participants have to provide signatures, the last or "any" participant, as well. Any participant can perform the order.
 
-Let's illustrate the above concepts through an example. Let's say we want to sell two CryptoKitties for 5.000 ZXC. To allow anyone to buy it, we would use a `DynamicActionsOrder`, since we do not need to set the `receiverId` of the CryptoKitties and neither the `senderId` of ZXC. This means that anyone that wants to perform the order will automatically become the empty recipient/sender with whom we will exchange the assets. If we use the same case, but this time, we want to sell our CryptoKitties to Bob for 5.000 ZXC, we will use `FixedActionsOrder`, so that we can specify the exact receiver. Now, let's say that Bob does not have any WAN and is unable to perform the order, but he has tons of ZXC tokens, and his friend Sara is willing to help him out. In this case, we can use a `SignedFixedActionsOrder`, so that Bob only needs to sign the order, and Sara can perform it. If he wanted to pay Sara some ZXC for doing this, he could specify this in the order.
+Let's illustrate the above concepts through an example. Let's say we want to sell two CryptoKitties for 5.000 ZXC. To allow anyone to buy it, we would use a `DynamicActionsOrder`, since we do not need to set the `receiverId` of the CryptoKitties and neither the `senderId` of ZXC. This means that anyone that wants to perform the order will automatically become the empty recipient/sender with whom we will exchange the assets. If we use the same case, but this time, we want to sell our CryptoKitties to Bob for 5.000 ZXC, we will use `FixedActionsOrder`, so that we can specify the exact receiver. Now, let's say that Bob does not have any ETH and is unable to perform the order, but he has tons of ZXC tokens, and his friend Sara is willing to help him out. In this case, we can use a `SignedFixedActionsOrder`, so that Bob only needs to sign the order, and Sara can perform it. If he wanted to pay Sara some ZXC for doing this, he could specify this in the order.
 
 Therefore, `signed` orders are perfect for third-party services providing order execution for someone else. This can come handy in a variety of dApps.
 
@@ -2232,7 +2241,7 @@ const signature = await gateway.sign(order);
 
 Orders define what an atomic swap will do. There are three different order kinds with different use cases and definitions.
 
-### Asset ledger deploy order
+### AssetLedgerDeployOrder
 
 This order kind is used for delegating `AssetLedger` deploy.
 
@@ -2250,6 +2259,23 @@ This order kind is used for delegating `AssetLedger` deploy.
 | makerId | [required] A `string` representing a Wanchain account address which makes the order. It defaults to the `accountId` of a provider.
 | seed | [required] An `integer` number representing a unique order number.
 | takerId | A `string` representing the Wanchain account address which will be able to perform the order on the blockchain. This account also pays the gas cost.
+| tokenTransferData.ledgerId | [required] A `string` representing asset ledger address.
+| tokenTransferData.receiverId | A `string` representing the receiver's address.
+| tokenTransferData.value | [required] A big number `string` representing the transferred amount.
+
+### AssetSetOperatorOrder
+
+This order kind is used for delegating `SetOperator` order.
+
+| Argument | Description
+|-|-
+| expiration | [required] An `integer` number representing the timestamp in milliseconds after which the order expires and can not be performed anymore.
+| isOperator | [required] A `boolean` representing if we are granting or revoking operator permission of an account.
+| kind | [required] An `integer` number that equals to `OrderKind.ASSET_SET_OPERATOR_ORDER`.
+| ledgerId | [required] A `string` representing an asset ledger id on which we are setting the operator.
+| owner | [required] A `string` representing an Ethereum account address which is the asset owner granting operator permission.
+| operator | [required] A `string` representing an Ethereum account address which will get operator permission grated or revoked.
+| seed | [required] An `integer` number representing a unique order number.
 | tokenTransferData.ledgerId | [required] A `string` representing asset ledger address.
 | tokenTransferData.receiverId | A `string` representing the receiver's address.
 | tokenTransferData.value | [required] A big number `string` representing the transferred amount.
@@ -2475,39 +2501,37 @@ These are the latest addresses that work with the 0xcert Framework version 2.0.0
 
 ### Mainnet
 
-Coming soon...
-
 | Contract | Address
 |-|-
-| AbilitableManageProxy | []()
-| ActionsGateway | []()
-| NFTokenTransferProxy | []()
-| NFTokenSafeTransferProxy | []()
-| TokenDeployGateway | []()
-| TokenDeployProxy | []()
-| TokenTransferProxy | []()
-| XcertCreateProxy | []()
-| XcertDeployGateway | []()
-| XcertDeployProxy | []()
-| XcertDestroyProxy | []()
-| XcertUpdateProxy | []()
+| AbilitableManageProxy | [0x30583315567Bf046E3FB6Ee645D3B95814Ea74c7](https://wanscan.org/address/0x30583315567Bf046E3FB6Ee645D3B95814Ea74c7)
+| ActionsGateway | [0x8a85cA5ED516DA0f235647222e89CEfeF85F53e4](https://wanscan.org/address/0x8a85cA5ED516DA0f235647222e89CEfeF85F53e4)
+| NFTokenTransferProxy | [0xF8e229EDfbb610F402c69dc9756f3B50C0Ac270e](https://wanscan.org/address/0xF8e229EDfbb610F402c69dc9756f3B50C0Ac270e)
+| NFTokenSafeTransferProxy | [0x284CF379e8F8632dC1B1591682697D260897837e](https://wanscan.org/address/0x284CF379e8F8632dC1B1591682697D260897837e)
+| TokenDeployGateway | [0x9a0bB454D50c7281562cD75311412E1a7D1375AF](https://wanscan.org/address/0x9a0bB454D50c7281562cD75311412E1a7D1375AF)
+| TokenDeployProxy | [0xFC7A0370B22430d8Bf634410e54A62BF0F3de657](https://wanscan.org/address/0xFC7A0370B22430d8Bf634410e54A62BF0F3de657)
+| TokenTransferProxy | [0xBEF002ABcA767d9317b7fBDbAEa9628263b372cC](https://wanscan.org/address/0xBEF002ABcA767d9317b7fBDbAEa9628263b372cC)
+| XcertCreateProxy | [0x0981E095EA43a82ECb86a97a0669680Bbe0F742A](https://wanscan.org/address/0x0981E095EA43a82ECb86a97a0669680Bbe0F742A)
+| XcertDeployGateway | [0x20337208647bB73b706D435c86F31cd5897bB24c](https://wanscan.org/address/0x20337208647bB73b706D435c86F31cd5897bB24c)
+| XcertDeployProxy | [0x2cf71A22783da9512f7D48140a4204E9F021413C](https://wanscan.org/address/0x2cf71A22783da9512f7D48140a4204E9F021413C)
+| XcertDestroyProxy | [0x5De4150cD427D68189c20a737D328C18847EFf5C](https://wanscan.org/address/0x5De4150cD427D68189c20a737D328C18847EFf5C)
+| XcertUpdateProxy | [0x4Ee6dAf09240A34145a5ce8E636C7134C8ccdDa5](https://wanscan.org/address/0x4Ee6dAf09240A34145a5ce8E636C7134C8ccdDa5)
 
 ### Testnet
 
 | Contract | Address
 |-|-
-| AbilitableManageProxy | [0x347A622e64FD972dfAEBF8C6b767cefd0926FB66](https://testnet.wanscan.org/address/0x347A622e64FD972dfAEBF8C6b767cefd0926FB66)
-| ActionsGateway | [0x52FF43a24d7046ce8EA3DcFBDb758e564853b794](https://testnet.wanscan.org/address/0x52FF43a24d7046ce8EA3DcFBDb758e564853b794)
-| NFTokenTransferProxy | [0x31196eF69828CB3b30f8a1171fFE41509046f79b](https://testnet.wanscan.org/address/0x31196eF69828CB3b30f8a1171fFE41509046f79b)
-| NFTokenSafeTransferProxy | [0x7C7562FaF8A20eF716BFF010069d14038Fe03234](https://testnet.wanscan.org/address/0x7C7562FaF8A20eF716BFF010069d14038Fe03234)
-| TokenDeployGateway | [0x3314c6003fe4e76E3a73001A000c59179D0F3239](https://testnet.wanscan.org/address/0x3314c6003fe4e76E3a73001A000c59179D0F3239)
-| TokenDeployProxy | [0xb0db425CBe18C24fee38A1FA44481B5111227560](https://testnet.wanscan.org/address/0xb0db425CBe18C24fee38A1FA44481B5111227560)
-| TokenTransferProxy | [0x970BD8F20e76207498bdE2C9d864BF40358f3a6F](https://testnet.wanscan.org/address/0x970BD8F20e76207498bdE2C9d864BF40358f3a6F)
-| XcertCreateProxy | [0xb2005dEdBbA65A94A35CfE333257a5B8216Ab92A](https://testnet.wanscan.org/address/0xb2005dEdBbA65A94A35CfE333257a5B8216Ab92A)
-| XcertDeployGateway | [0x1A549658F98ffDdc2fd5ce774205e0343F332b5a](https://testnet.wanscan.org/address/0x1A549658F98ffDdc2fd5ce774205e0343F332b5a)
-| XcertDeployProxy | [0x3A74b5A7b36e8cb1eAD919087185E197298aBC66](https://testnet.wanscan.org/address/0x3A74b5A7b36e8cb1eAD919087185E197298aBC66)
-| XcertDestroyProxy | [0xf6F4941e0B5aFaf82Ef0F5088479a57FFFB65216](https://testnet.wanscan.org/address/0xf6F4941e0B5aFaf82Ef0F5088479a57FFFB65216)
-| XcertUpdateProxy | [0xa37b825be44f241Fd2A7a454581DA037562eD302](https://testnet.wanscan.org/address/0xa37b825be44f241Fd2A7a454581DA037562eD302)
+| AbilitableManageProxy | [0xcD30673a720Ad0f9fe0279CD8925dAf84C5377fA](https://testnet.wanscan.org/address/0xcD30673a720Ad0f9fe0279CD8925dAf84C5377fA)
+| ActionsGateway | [0x7b65B89Dd2b43229E8BD087fA1601805d571b57D](https://testnet.wanscan.org/address/0x7b65B89Dd2b43229E8BD087fA1601805d571b57D)
+| NFTokenTransferProxy | [0x8f0530eef90040701C45eBb77bEBe1c0732e287D](https://testnet.wanscan.org/address/0x8f0530eef90040701C45eBb77bEBe1c0732e287D)
+| NFTokenSafeTransferProxy | [0xbD28498AD1f0F127C62304fF657184B2608f13ac](https://testnet.wanscan.org/address/0xbD28498AD1f0F127C62304fF657184B2608f13ac)
+| TokenDeployGateway | [0xE18a943ab808B69A5da445de844932f5f267baA0](https://testnet.wanscan.org/address/0xE18a943ab808B69A5da445de844932f5f267baA0)
+| TokenDeployProxy | [0xd4cE3D51025aF13d23aa99FB7c8684eA22a9FEde](https://testnet.wanscan.org/address/0xd4cE3D51025aF13d23aa99FB7c8684eA22a9FEde)
+| TokenTransferProxy | [0xEb97AB4c0Fb8CB867F029556A1Fe394c2ab289C2](https://testnet.wanscan.org/address/0xEb97AB4c0Fb8CB867F029556A1Fe394c2ab289C2)
+| XcertCreateProxy | [0xE895bBBA96AF69361B23dF88b2579404967447b6](https://testnet.wanscan.org/address/0xE895bBBA96AF69361B23dF88b2579404967447b6)
+| XcertDeployGateway | [0x121ab5e82cdA136e4632268956d4227696D2F5e7](https://testnet.wanscan.org/address/0x121ab5e82cdA136e4632268956d4227696D2F5e7)
+| XcertDeployProxy | [0xF782B81fF5D335690F120f1A3883F5Cd3604Bf64](https://testnet.wanscan.org/address/0xF782B81fF5D335690F120f1A3883F5Cd3604Bf64)
+| XcertDestroyProxy | [0x677E5dB1dFc3F998670E0Ffe70B6F2Ab12BC02f7](https://testnet.wanscan.org/address/0x677E5dB1dFc3F998670E0Ffe70B6F2Ab12BC02f7)
+| XcertUpdateProxy | [0x6cbbb06E702A3b560C7c162BF6CAAF5d50659528](https://testnet.wanscan.org/address/0x6cbbb06E702A3b560C7c162BF6CAAF5d50659528)
 
 ## Possible errors
 

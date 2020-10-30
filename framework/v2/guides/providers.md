@@ -20,11 +20,11 @@ We recommend you employ the provider module as an NPM package in your applicatio
 $ npm i --save @0xcert/ethereum-metamask-provider
 ```
 
-On our official [GitHub repository](https://github.com/0xcert/framework), we also host a compiled and minimized JavaScript file that can be directly implemented into your website. Please refer to the [API](/api/ethereum.html) section to learn more about other providers.
+On our official [GitHub repository](https://github.com/0xcert/framework), we also host a compiled and minimized JavaScript file that can be directly implemented into your website. Please refer to the [API](/framework/v2/api/ethereum-connectors.html) section to learn more about other providers.
 
 ## Usage overview
 
-To start developing the application, we have to first instantiate the [MetamaskProvider](/api/ethereum.html#metamask-provider) provider class. This is usually only needed once within the application.
+To start developing the application, we have to first instantiate the [MetamaskProvider](/framework/v2/api/ethereum-connectors.html#metamask-provider) provider class. This is usually only needed once within the application.
 
 ```ts
 import { MetamaskProvider } from '@0xcert/ethereum-metamask-provider';

@@ -29,12 +29,12 @@ Before we can start setting asset ledger abilities we must initialize our client
 ```ts
 const client = new Client({
   provider,
-  apiUrl: 'https://api-staging.0xcert.org',
+  apiUrl: 'https://api-rinkeby.0xcert.org',
 });
 await client.init();
 ```
 ::: warning
-For successful client initialization you need connected 0xcert framework provider instance. See [Using providers](providers.html#providers) chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
+For successful client initialization you need connected 0xcert framework provider instance. See [Providers](providers.html#providers) chapter for detailed instructions. Your provider must be connected to `Rinkeby` Ethereum test network.
 :::
 
 Once client is initialized, we define our set asset ledger abilities action.
@@ -101,3 +101,7 @@ If the status of the action order equals to `7`, we know that our order was perf
 ```ts
 const ledgerAccounts = await client.getLedgerAccounts(ledger.ref).then((data) => data.data);
 ```
+
+::: tip
+You can also set up and receive webhooks. In this scenario you will receive webhooks when our order changes (updated or successful) or if it fails. You can learn more about webhooks in chapter [Webhooks](/api/api/client.html#webhooks). 
+:::

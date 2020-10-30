@@ -11,7 +11,7 @@ pageClass: homepage
     <p>
       A <strong>fully decentralized web service</strong> built on top of the existing 0xcert open-source infrastructure, which wraps 0xcert functionalities in a common, easy to use API interface.
     </p>
-    <a href="/api/guides/overview" class="button">Read docs</a>
+    <a href="/api/" class="button">Read docs</a>
   </div>
   <div class="box">
     <img src="/framework-icon.svg" class="icon"/>

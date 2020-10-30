@@ -22,7 +22,7 @@ On our official [GitHub repository](https://github.com/0xcert/framework), we als
 
 ## Usage overview
 
-To start developing the application, we have to first instantiate the [MetamaskProvider](https://docs.0xcert.org/framework/v2/api/ethereum-connectors.html#metamask-provider) provider class. This is usually only needed once within the application. When initializing we also set the gateway config. This is needed for the 0xcertAPI client to work properly.
+To start developing the application, we have to first instantiate the [MetamaskProvider](https://docs.0xcert.org/framework/v2/api/ethereum-connectors.html#metamask-provider) provider class. This is usually only needed once within the application. When initializing we also set the gateway config. This is needed for the 0xcert API client to work properly.
 
 ```ts
 import { MetamaskProvider, buildGatewayConfig, NetworkKind } from '@0xcert/ethereum-metamask-provider';

@@ -48,5 +48,7 @@ Webhooks are a way that apps can send automated messages or information to your 
 * Order request errors events
 * Deploy request changed events
 * Deploy request errors events
+* Approve request changed events
+* Approve request errors events
 
 If none of the options is selected, the account will be subscribed to all of them and will send all events to defined webhooks URL.
