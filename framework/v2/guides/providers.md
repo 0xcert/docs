@@ -68,3 +68,93 @@ Error example:
   message: 'Sender does not have sufficient balance.'
 }
 ```
+
+## Create your own provider
+
+We have some predefined providers so you can use out of the box but if you have some other way you want to connect to blockchain (e.g. you want to do raw transaction) you can write you own provider. This will show you the basic principle of how to create you own provider.
+
+All providers have the same structure which is provided by `GenericProvider`. Generic provider has a `client` which is the main part that we need to override to achieve custom functionality.
+The `client` class need to override one single function where all the magic happens.
+
+Client needs to have send function defined as this: 
+
+```ts
+public send(data: any, callback: (err, data) => any) { }
+```
+
+The `data` input is a JSON rpc call to an ethereum function. And the callback data needs to be an object that consists of `result` which the is rpc response and `id` which need to be the same as `data.id`. Since rpc call and responses need to have the same `id`.
+
+Input data example: 
+```ts
+{
+  jsonrpc: '2.0',
+  method: 'eth_sendTransaction',
+  params: [{
+    from: '0x...',
+    to: '0x...',
+    data: '0x...',
+    gasPrice: '0x...',
+    gas: '0x...'
+  }],
+  id: 12
+}
+```
+
+Callback data example:
+```ts
+{
+  result: '0x...', // transaction hash in case of eth_sendTransaction
+  id: 12 // id of json rpc request
+}
+```
+
+
+### Example 1 (using generic provider): 
+
+```ts
+import { GenericProvider } from '@0xcert/ethereum-generic-provider';
+
+export class CustomClient {
+
+  /**
+   * Sends the RPC call.
+   */
+  public send(data: any, callback: (err, data) => any) {
+    // 
+  }
+}
+
+const provider = new GenericProvider({
+  client = new CustomClient(),
+});
+
+```
+
+### Example 2 (extending generic provider): 
+
+```ts
+
+import { GenericProvider } from '@0xcert/ethereum-generic-provider';
+
+export class CustomProvider extends GenericProvider {
+
+    /**
+   * Class constructor.
+   */
+  public constructor(options: GenericProviderOptions) {
+    super(options);
+
+    this._options = options;
+    this._client = this;
+  }
+
+  /**
+   * Sends the RPC call.
+   */
+  public send(data: any, callback: (err, data) => any) {
+    // 
+  }
+
+}
+
+```
