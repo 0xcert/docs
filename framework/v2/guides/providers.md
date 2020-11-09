@@ -71,10 +71,9 @@ Error example:
 
 ## Create your own provider
 
-We have some predefined providers so you can use out of the box but if you have some other way you want to connect to blockchain (e.g. you want to do raw transaction) you can write you own provider. This will show you the basic principle of how to create you own provider.
+We have some predefined providers you can use out of the box, but if you have an alternative way you want to connect to the blockchain (e.g. you want to do raw transaction) you can write your own provider. This will show you the basic principles of creating your own provider.
 
 All providers have the same structure which is provided by `GenericProvider`. Generic provider has a `client` which is the main part that we need to override to achieve custom functionality.
-The `client` class need to override one single function where all the magic happens.
 
 Client needs to have send function defined as this: 
 
@@ -82,7 +81,7 @@ Client needs to have send function defined as this:
 public send(data: any, callback: (err, data) => any) { }
 ```
 
-The `data` input is a JSON rpc call to an ethereum function. And the callback data needs to be an object that consists of `result` which the is rpc response and `id` which need to be the same as `data.id`. Since rpc call and responses need to have the same `id`.
+The `data` input is a JSON rpc call to an ethereum function. The callback data needs to be an object, consisting of `result` which is the rpc response, and `id` which needs to be the same as `data.id`. The rpc call and responses need to have the same `id`.
 
 Input data example: 
 ```ts
