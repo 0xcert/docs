@@ -22,4 +22,4 @@ Assets follow [ERC-721](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-72
 
 Apart from the imprint, every asset also includes a URIs, pointing to asset JSON schema and publicly available [JSON](https://en.wikipedia.org/wiki/JSON) metadata file with additional public information about the asset. This information is intended for a public listing on different online services.
 
-This concept is further explained in the [certification](/guide/certification.html) section.
+This concept is further explained in the [certification](api/guide/certification.html) section.
